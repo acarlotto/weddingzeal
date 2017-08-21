@@ -1,2 +1,12 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+.h3 {
+  font-size: 40px;
+  color: red;
+}
+
+.navbar-default {
+    background-color: #ffffff;
+    border-color: #f4f2ea;
+}
