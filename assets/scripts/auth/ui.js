@@ -16,8 +16,8 @@ const onSignupFailure = (error) => {
 }
 
 const onSigninSuccess = function (data) {
-  // console.log(app)
-  // app.user = data.user
+  console.log(app)
+  app.user = data.user
   console.log('sign in successful')
 }
 
@@ -34,11 +34,8 @@ const onSigninFailure = (error) => {
 }
 
 const onLogoutSuccess = function (app) {
-  app.user = null
-  console.log('User Logged Out')
+  console.log('sign-out successful')
 }
-  // $('#log-out').removeClass('.owin_times')
-  // $('#log-out').removeClass('.owin_times')
 
 const onLogoutFailure = function () {
   console.log('error signing out')

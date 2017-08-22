@@ -25,9 +25,9 @@ const loginUser = function (event) {
   .catch(appUi.onSigninFailure)
 }
 
-const logoutUser = function (event) {
+const logoutUser = function () {
   // const data = getFormFields(this)
-  event.preventDefault()
+  event.preventDefault(event)
   appApi.userLogout()
   .then(appUi.onLogoutSuccess)
   .catch(appUi.onLogoutFailure)

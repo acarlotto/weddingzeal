@@ -1,4 +1,4 @@
-const app = require('../app.js')
+const app = require('../app')
 
 const addUser = function (data) {
   // console.log(data)
@@ -23,7 +23,7 @@ const userLogin = function (data) {
     method: 'POST',
     // headers: {
       // Authorization: 'Token token=' + app.user.token // store.user.token
-    // },
+  // },
     data: {
       'credentials': {
         'email': data.credentials.email,
@@ -33,13 +33,13 @@ const userLogin = function (data) {
   })
 }
 
-const userLogout = function (user) {
+const userLogout = function (id) {
   return $.ajax({
     url: app.host + '/sign-out/' + app.user.id,
+    method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + app.user.token
-    },
-    method: 'DELETE'
+    }
   })
 }
 
