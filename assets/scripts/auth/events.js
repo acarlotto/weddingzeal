@@ -32,8 +32,17 @@ const logoutUser = function () {
   .then(appUi.onLogoutSuccess)
   .catch(appUi.onLogoutFailure)
 }
+
+const events = function () {
+  event.preventDefault(event)
+  appApi.addEvent()
+  .then()
+  .catch()
+}
+
 module.exports = {
   registerUser,
   loginUser,
-  logoutUser
+  logoutUser,
+  events
 }

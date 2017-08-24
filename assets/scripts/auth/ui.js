@@ -19,6 +19,7 @@ const onSigninSuccess = function (data) {
   console.log(app)
   app.user = data.user
   console.log('sign in successful')
+  fetch()
 }
 
 // const onSigninFailure = function (error) {

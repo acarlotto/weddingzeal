@@ -1,5 +1,5 @@
 'use strict'
 
 module.exports = {
-  host: 'http://localhost:4741/'
+  host: 'https://shielded-fjord-12904.herokuapp.com'
 }

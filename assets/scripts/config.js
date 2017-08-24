@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    production: 'http://localhost:4741/'
+    production: 'https://shielded-fjord-12904.herokuapp.com'
   }
 }
 
