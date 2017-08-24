@@ -16,10 +16,9 @@ const onSignupFailure = (error) => {
 }
 
 const onSigninSuccess = function (data) {
-  console.log(app)
   app.user = data.user
   console.log('sign in successful')
-  fetch()
+  console.log(app)
 }
 
 // const onSigninFailure = function (error) {

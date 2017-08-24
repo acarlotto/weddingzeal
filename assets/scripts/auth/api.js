@@ -43,17 +43,6 @@ const userLogout = function (id) {
   })
 }
 
-const addEvent = function (data) {
-  // console.log(data)
-  return $.ajax({
-    url: app.host + '/events/',
-    method: 'POST',
-    headers: {
-      Authorization: 'Token token=' + app.user.token
-    }
-  })
-}
-
 module.exports = {
   addUser,
   userLogin,
