@@ -18,4 +18,5 @@ $(() => {
   $('#registration').on('submit', appEvents.registerUser)
   $('#login').on('submit', appEvents.loginUser)
   $('#log-out').on('click', appEvents.logoutUser)
+  $('#event-show').on('click', appEvents.onGetEvents)
 })

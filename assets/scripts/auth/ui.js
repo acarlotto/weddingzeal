@@ -41,11 +41,16 @@ const onLogoutFailure = function () {
   console.log('error signing out')
 }
 
+const onSuccessGetEvent = function (data) {
+  console.table(data.events)
+}
+
 module.exports = {
   onSignupSuccess,
   onSignupFailure,
   onSigninSuccess,
   onSigninFailure,
   onLogoutSuccess,
-  onLogoutFailure
+  onLogoutFailure,
+  onSuccessGetEvent
 }
