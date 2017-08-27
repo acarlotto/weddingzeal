@@ -19,6 +19,7 @@ const onSigninSuccess = function (data) {
   app.user = data.user
   console.log('sign in successful')
   console.log(app)
+  $('#message').show()
 }
 
 // const onSigninFailure = function (error) {
@@ -42,7 +43,21 @@ const onLogoutFailure = function () {
 }
 
 const onSuccessGetEvent = function (data) {
+  console.log(app.user.id)
   console.table(data.events)
+}
+
+const onSuccessGetUserEvent = function (data) {
+  console.log(app.user.id)
+  console.table(data.evnets)
+}
+
+const onFailureGetUserEvent = function (data) {
+  console.log('failure')
+}
+
+const getAllEvents = function (data) {
+  app.user.events = data.events
 }
 
 module.exports = {
@@ -52,5 +67,8 @@ module.exports = {
   onSigninFailure,
   onLogoutSuccess,
   onLogoutFailure,
-  onSuccessGetEvent
+  onSuccessGetEvent,
+  onSuccessGetUserEvent,
+  onFailureGetUserEvent,
+  getAllEvents
 }

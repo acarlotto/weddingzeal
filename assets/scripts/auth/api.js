@@ -43,24 +43,23 @@ const userLogout = function (id) {
   })
 }
 
-const addEvent = function (data) {
-  // console.log(data)
+const showEvent = (id) => {
   return $.ajax({
-    url: app.host + '/events',
-    method: 'POST',
+    url: app.host + '/events/',
+    method: 'GET',
     headers: {
       Authorization: 'Token token=' + app.user.token
     }
   })
 }
 
-const showEvent = function (data) {
-  // console.log(data)
+const showUserEvents = (id) => {
+  // const eventId = data.event.id
   return $.ajax({
-    url: app.host + '/events/',
+    url: app.host + '/event/' + id,
     method: 'GET',
     headers: {
-    //  Authorization: 'Token token=' + app.user.token
+      Authorization: 'Token token=' + app.user.token
     }
   })
 }
@@ -69,6 +68,6 @@ module.exports = {
   addUser,
   userLogin,
   userLogout,
-  addEvent,
-  showEvent
+  showEvent,
+  showUserEvents
 }

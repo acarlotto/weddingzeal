@@ -48,10 +48,26 @@ const onGetEvents = function (event) {
   .catch(appUi.onFailureGetEvent)
 }
 
+const onGetUsersEvents = function (id) {
+  event.preventDefault()
+  appApi.showUserEvent(id)
+  .then(appUi.onSuccessGetUserEvent)
+  .catch(appUi.onFailureGetUserEvent)
+}
+
+// onCreateNewEvent = fuction (data) {
+  // event.preventDefault()
+  // let data = getFormFields(event.target)
+  // appApi.newEvent(data)
+  // .then(appUi.getAllEvents)
+  // .catch(appUi.getAllEventsFail)
+// }
+
 module.exports = {
   registerUser,
   loginUser,
   logoutUser,
-  onGetEvents
-  // onShowEvents
+  onGetEvents,
+  onGetUsersEvents
+  // onCreateNewEvent
 }
