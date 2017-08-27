@@ -42,11 +42,13 @@ const onLogoutFailure = function () {
   console.log('error signing out')
 }
 
+// get all events not for particular user
 const onSuccessGetEvent = function (data) {
   console.log(app.user.id)
   console.table(data.events)
 }
 
+// get events for signed in user
 const onSuccessGetUserEvent = function (data) {
   console.log(app.user.id)
   console.table(data.evnets)
@@ -56,8 +58,18 @@ const onFailureGetUserEvent = function (data) {
   console.log('failure')
 }
 
+// get all events
 const getAllEvents = function (data) {
   app.user.events = data.events
+}
+
+// CREATE New EVENT
+const newSuccess = function () {
+  console.log('success')
+}
+
+const newFail = function () {
+  console.log('fail')
 }
 
 module.exports = {
@@ -70,5 +82,7 @@ module.exports = {
   onSuccessGetEvent,
   onSuccessGetUserEvent,
   onFailureGetUserEvent,
-  getAllEvents
+  getAllEvents,
+  newSuccess,
+  newFail
 }

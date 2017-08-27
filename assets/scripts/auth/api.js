@@ -64,10 +64,23 @@ const showUserEvents = (id) => {
   })
 }
 
+// create
+const newEvent = (data) => {
+  return $.ajax({
+    url: app.host + '/events',
+    method: 'POST',
+    data: data,
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
 module.exports = {
   addUser,
   userLogin,
   userLogout,
   showEvent,
-  showUserEvents
+  showUserEvents,
+  newEvent
 }
