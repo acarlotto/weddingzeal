@@ -43,6 +43,18 @@ const userLogout = function (id) {
   })
 }
 
+const passwordReset = function (data) {
+  // console.log(data)
+  return $.ajax({
+    url: app.host + '/change-password/' + app.user.id,
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    method: 'PATCH',
+    data
+  })
+}
+
 const showEvent = (id) => {
   return $.ajax({
     url: app.host + '/events/',
@@ -76,11 +88,25 @@ const newEvent = (data) => {
   })
 }
 
+// add in other files
+const deleteEvent = (data) => {
+  return $.ajax({
+    url: app.host + 'events' + app.event.id,
+    method: 'DELETE',
+    data: data,
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
 module.exports = {
   addUser,
   userLogin,
   userLogout,
   showEvent,
   showUserEvents,
-  newEvent
+  newEvent,
+  deleteEvent,
+  passwordReset
 }

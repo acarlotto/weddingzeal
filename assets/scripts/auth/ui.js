@@ -72,6 +72,14 @@ const newFail = function () {
   console.log('fail')
 }
 
+const onResetSuccess = function () {
+  console.log('password reset successful')
+}
+
+const onResetFailure = function () {
+  console.log('password reset failed')
+}
+
 module.exports = {
   onSignupSuccess,
   onSignupFailure,
@@ -84,5 +92,7 @@ module.exports = {
   onFailureGetUserEvent,
   getAllEvents,
   newSuccess,
-  newFail
+  newFail,
+  onResetSuccess,
+  onResetFailure
 }

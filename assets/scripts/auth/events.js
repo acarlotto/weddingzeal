@@ -33,6 +33,14 @@ const logoutUser = function () {
   .catch(appUi.onLogoutFailure)
 }
 
+const resetPassword = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  appApi.passwordReset(data)
+  .then(appUi.onResetSuccess)
+  .catch(appUi.onResetFailure)
+}
+
 // onGetevent to show all user events
 const onGetEvents = function (event) {
   event.preventDefault()
@@ -60,6 +68,7 @@ module.exports = {
   registerUser,
   loginUser,
   logoutUser,
+  resetPassword,
   onGetEvents,
   onGetUsersEvents,
   onCreateNewEvent
