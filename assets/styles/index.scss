@@ -10,3 +10,8 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
     background-color: #ffffff;
     border-color: #f4f2ea;
 }
+
+.delete {
+  background-image: image();
+  content: "delete";
+}

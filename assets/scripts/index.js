@@ -20,4 +20,13 @@ $(() => {
   $('#log-out').on('click', appEvents.logoutUser)
   $('#event-show').on('click', appEvents.onGetEvents)
   $('#passChange').on('submit', appEvents.resetPassword)
+  $('#eventsShow').on('submit', appEvents.onGetEvents)
+  $('#deleteEvent').on('click', appEvents.deleteEvent)
+  $('#create-event').on('submit', appEvents.onCreateNewEvent)
+})
+
+$(document).ready(function () {
+  $('#passChange').hide()
+  $('#message').show()
+  // $('#log-out').hide()
 })

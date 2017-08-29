@@ -44,14 +44,26 @@ const onLogoutFailure = function () {
 
 // get all events not for particular user
 const onSuccessGetEvent = function (data) {
+  const myIndexArray = [0, 1, 2, 3, 4, 5, 6]
+  const indexLength = myIndexArray.length
+  for (let i = 0; i < indexLength; i++) {
+    console.log(myIndexArray[i])
+    // const title = data.events[indexLength[i]].title
+    $('#message').append('<div class="row" style="text-align: center; color: black"> <p> ' + data.events[myIndexArray[i]].title + ' !!</p></div>')
+  }
+  // $('#message').append(data.events[0].title)
+  // hide view button and change password form
+
+  // document.write(users)
   console.log(app.user.id)
   console.table(data.events)
+  console.table(data.events[0].title)
 }
 
 // get events for signed in user
 const onSuccessGetUserEvent = function (data) {
   console.log(app.user.id)
-  console.table(data.evnets)
+  // console.table(data.events)
 }
 
 const onFailureGetUserEvent = function (data) {
@@ -80,6 +92,14 @@ const onResetFailure = function () {
   console.log('password reset failed')
 }
 
+const deleteSuccess = function () {
+  console.log('delete success')
+}
+
+const deleteFail = function () {
+  console.log('delete fail')
+}
+
 module.exports = {
   onSignupSuccess,
   onSignupFailure,
@@ -94,5 +114,7 @@ module.exports = {
   newSuccess,
   newFail,
   onResetSuccess,
-  onResetFailure
+  onResetFailure,
+  deleteSuccess,
+  deleteFail
 }

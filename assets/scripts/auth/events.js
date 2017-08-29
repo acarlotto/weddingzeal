@@ -51,17 +51,25 @@ const onGetEvents = function (event) {
 
 const onGetUsersEvents = function (id) {
   event.preventDefault()
-  appApi.showUserEvent(id)
+  appApi.showUserEvents(id)
   .then(appUi.onSuccessGetUserEvent)
   .catch(appUi.onFailureGetUserEvent)
 }
 
 // post
 const onCreateNewEvent = function () {
+  const data = getFormFields(this)
   event.preventDefault()
-  appApi.newEvent()
+  appApi.newEvent(data)
   .then(appUi.newSuccess)
   .catch(appUi.newFail)
+}
+
+const onDeleteEvent = function () {
+  event.preventDefault()
+  appApi.deleteEvent()
+  .then(appUi.deleteSuccess)
+  .catch(appUi.deleteFail)
 }
 
 module.exports = {
@@ -71,5 +79,6 @@ module.exports = {
   resetPassword,
   onGetEvents,
   onGetUsersEvents,
-  onCreateNewEvent
+  onCreateNewEvent,
+  onDeleteEvent
 }

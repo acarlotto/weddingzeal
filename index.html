@@ -4,13 +4,13 @@
       <title>BridesmaidingIt!</title>
       <!-- Bootstrap -->
       <link rel="stylesheet" type="text/css" href="assets/styles/index.scss">
-
     <!-- Do not add `link` tags unless you know what you are doing -->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
       <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Sedgwick+Ave+Display|Source+Serif+Pro" rel="stylesheet">
       <!-- Do not add `script` tags unless you know what you are doing -->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="handlebars-v4.0.10.js"></script>
 
     </head>
 
@@ -118,26 +118,51 @@
       <h3>BridesmaidingIt!</h3>
 
       <p>Planning site for the wedding party!</p>
+
+
+
+
       <div class="row">
         <form id="create-event">
           <h2>Create your event</h2>
           <div class="input-group">
             <label for="title">Event Title</label>
-            <input type="text" name="" placeholder="">
+            <input type="text" name="event[title]" value="" placeholder="">
+            <input type="hidden" name="event[user_id]" value="1">
+            <input type="hidden" name="event[event_id]" value="1">
           </div>
           <input type="submit" name="submit" class="submit" value="enter event">
         </form>
     </div>
 
 <h3>Show Events</h3>
-    <form class="events" id='event-show'>
+  <!--  <form class="events" id='event-show'>
             <button type="Submit" class="btn btn-default">Show Events</button>
-          </form>
+          </form>-->
 
           <form class="events" id='eventsShow'>
-                  <button type="Submit" class="btn btn-default">Show User Events</button>
+                  <button type="Submit" class="btn btn-default">Show Events</button>
                 </form>
 
-<message>
+<div id="message"></div>
+
+<div id="listData"></div>
+
+<script id="list-template" type="text/x-handlebars-template">
+  <h3> My list</h3>
+  <p>{{title}}</p>
+  <ul>
+    {{#each todos}}
+    <li>{{todo}}</li>
+      {{/each}}
+    </ul>
+</script>
+
+
+<script type="text/javascript">
+var
+</script>
+
+<script type="text/javascript" src="/ui.js"></script>
     </body>
 </html>
