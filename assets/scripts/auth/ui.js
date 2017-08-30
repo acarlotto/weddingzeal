@@ -1,25 +1,32 @@
 'use strict'
 
 const app = require('../app.js')
+const appEvents = require('./events.js')
 
 const onSignupSuccess = function () {
+  $('#yayMessage').prepend('<div class="row" style="text-align: center; color: black"> <p>You are now signed up. Login. </p></div>')
   console.log('Signup Successful!')
 }
 
-const onSignupFailure = (error) => {
-  if (error.status === 401) {
-    // console.log(error)
-    console.log('There was problem signing up, please try again!')
-  } else {
-    console.log('There was problem signing up, please try again!***')
-  }
+const onSignupFailure = () => {
+  console.log('There was problem signing up, please try again!')
+  $('#errorMessage').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match or username is already taken. Try again!' + ' </p></div>')
 }
 
 const onSigninSuccess = function (data) {
   app.user = data.user
+  $('#message').empty()
   console.log('sign in successful')
-  console.log(app)
+  // $('#yayMessage').prepend('<div class="row" style="text-align: center; color: black"> <p>You are now signed in! </p></div>')
   $('#message').show()
+  $('#log-out').show()
+  $('.list').show()
+  $('#passChange').hide()
+  $('#create-event').hide()
+  $('#update-event').hide()
+  $('#registration').hide()
+  $('#login').hide()
+  $('#errorMessage').hide()
 }
 
 // const onSigninFailure = function (error) {
@@ -27,14 +34,21 @@ const onSigninSuccess = function (data) {
 // }
 
 const onSigninFailure = (error) => {
-  if (error.status === 401) {
-    console.log('Invalid username or password.')
-  } else {
-    // displayErrorMessage()
-  }
+  console.log('Invalid username or password.')
+  $('#errorMessage').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match or password is incorrect. Try again!' + ' </p></div>')
 }
 
 const onLogoutSuccess = function (app) {
+  $('#registration').show()
+  $('#login').show()
+  $('#passChange').hide()
+  $('#create-event').hide()
+  $('#update-event').hide()
+  $('#errorMessage').hide()
+  $('.list').hide()
+  $('#log-out').hide()
+  $('#message').hide()
+  $('#edit').hide()
   console.log('sign-out successful')
 }
 
@@ -42,22 +56,32 @@ const onLogoutFailure = function () {
   console.log('error signing out')
 }
 
-// get all events not for particular user
+// get all events not for particular user put in ui.js
 const onSuccessGetEvent = function (data) {
-  const myIndexArray = [0, 1, 2, 3, 4, 5, 6]
-  const indexLength = myIndexArray.length
-  for (let i = 0; i < indexLength; i++) {
-    console.log(myIndexArray[i])
-    // const title = data.events[indexLength[i]].title
-    $('#message').append('<div class="row" style="text-align: center; color: black"> <p> ' + data.events[myIndexArray[i]].title + ' !!</p></div>')
-  }
-  // $('#message').append(data.events[0].title)
-  // hide view button and change password form
+  $('#message').empty()
+  for (let i = 0; i < data.events.length; i++) {
+    $('#message').append('<div class="row" style="text-align: center; color: black"> <h3><input type="checkbox"> ' + data.events[i].title + ' <a href="">edit</a></h3></p><table><tr hidden><td id="my_id"> ' + data.events[i].id + '</td></tr></table></div>')
+    // const index = $('#message').index(this)
 
+    const link = data.events[i].id
+    console.log(link)
+    // $('#link').
+    $(document).on('click', '#deleteEvent', function () {
+      appEvents.deleteEvent()
+    })
+    // <button type="Submit" class="btn btn-default">delete Events</button>
+    // <button type="Submit" id="#deleteEvent" class="btn btn-default">delete Events</button>
+    // $('#deleteEvent').click(function () {
+    //   $('#message').remove(data.events[myIndexArray[i]].title)
+    // })
+    console.log(data.events[i].id)
+    $('#edit').show()
+  }
+    // <button class="btn" id="deleteEvent"> delete </button>
   // document.write(users)
-  console.log(app.user.id)
+  // console.log(app.user.id)
   console.table(data.events)
-  console.table(data.events[0].title)
+  // console.table(data.events[0].title)
 }
 
 // get events for signed in user
@@ -100,6 +124,14 @@ const deleteFail = function () {
   console.log('delete fail')
 }
 
+const onUpdateSuccess = function () {
+  console.log('success update')
+}
+
+const onUpdateFail = function () {
+  console.log('fail update')
+}
+
 module.exports = {
   onSignupSuccess,
   onSignupFailure,
@@ -116,5 +148,7 @@ module.exports = {
   onResetSuccess,
   onResetFailure,
   deleteSuccess,
-  deleteFail
+  deleteFail,
+  onUpdateSuccess,
+  onUpdateFail
 }

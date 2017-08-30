@@ -55,6 +55,7 @@ const passwordReset = function (data) {
   })
 }
 
+// this shows my data
 const showEvent = (id) => {
   return $.ajax({
     url: app.host + '/events/',
@@ -89,13 +90,29 @@ const newEvent = (data) => {
 }
 
 // add in other files
-const deleteEvent = (data) => {
+const deleteEvent = (delete_id) => {
   return $.ajax({
-    url: app.host + 'events' + app.event.id,
+    url: app.host + '/events/' + delete_id,
     method: 'DELETE',
-    data: data,
+    // data: data,
     headers: {
       Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
+
+const updateEvent = function (id) {
+  // let index = event.target.id
+  // console.log(app.user.token)
+  return $.ajax({
+    url: app.host + '/events/' + id, // was just id and then app.game.id (didn't work)
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + app.user.token // store.user.token
+    },
+    data: {
+      'title': {
+      }
     }
   })
 }
@@ -108,5 +125,6 @@ module.exports = {
   showUserEvents,
   newEvent,
   deleteEvent,
-  passwordReset
+  passwordReset,
+  updateEvent
 }

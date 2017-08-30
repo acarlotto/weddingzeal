@@ -65,13 +65,20 @@ const onCreateNewEvent = function () {
   .catch(appUi.newFail)
 }
 
-const onDeleteEvent = function () {
+const onDeleteEvent = function (event) {
+  const delete_id = $('#my_id').text()
   event.preventDefault()
-  appApi.deleteEvent()
+  appApi.deleteEvent(delete_id)
   .then(appUi.deleteSuccess)
   .catch(appUi.deleteFail)
 }
 
+const updateEvent = function () {
+  event.preventDefault()
+  appApi.updateEvent()
+  .then(appUi.onUpdateSuccess)
+  .catch(appUi.onUpdateFail)
+}
 module.exports = {
   registerUser,
   loginUser,
@@ -80,5 +87,6 @@ module.exports = {
   onGetEvents,
   onGetUsersEvents,
   onCreateNewEvent,
-  onDeleteEvent
+  onDeleteEvent,
+  updateEvent
 }

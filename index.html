@@ -27,31 +27,11 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-  <a class="navbar-brand" href="#">LOGO HERE</a>
+  <a class="navbar-brand" href="#">  <img src="http://bridesmaidingit.com//assets/images/logo.png"></a>
               </div>
               <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                  <li class="active"><a href="#">Home</a>
-                  </li>
-                  <li><a href="#about">About</a>
-                  </li>
-                  <li><a href="#contact">Contact</a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Action</a>
-                      </li>
-                      <li><a href="#">Another action</a>
-                      </li>
-                      <li><a href="#">Something else here</a>
-                      </li>
-                      <li class="divider"></li>
-                      <li class="dropdown-header">Nav header</li>
-                      <li><a href="#">Separated link</a>
-                      </li>
-                      <li><a href="#">One more separated link</a>
-                      </li>
+
                     </ul>
                   </li>
                 </ul>
@@ -60,10 +40,22 @@
             </div>
           </div>
   </nav>
+  <div class="jumbotron">
 
         <div class="container">
 
-      <form id="registration">
+          <div id="errorMessage"></div>
+          <div id="yayMessage"></div>
+          <div id="changePasswordMessage"></div>
+
+
+
+          <p>Planning site for the wedding party!</p>
+
+
+
+
+      <form id="registration" class="form-signin">
     <h2>Register</h2>
 
     <div class="input-group">
@@ -72,52 +64,50 @@
     </div>
     <div class="input-group">
     <label for="password"> Password </label>
-    <input type="password" name="credentials[password]" placeholder="Password">
+    <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
     </div>
     <div class="input-group">
     <label for="password-confirm"> Password </label>
-    <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+    <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Confirm Password">
     </div>
     <input type="submit" class="btn btn-info" name="submit" value="Register">
 
 
   </form>
 
-  <div class="row">
-   <form id="login">
+
+   <form id="login" class="form-signin">
      <h2> Login</h2>
      <div class="input-group">
        <label for="username"> Username </label>
-       <input type="text" name="credentials[email]" placeholder="Email">
+       <input type="text" class="form-control" name="credentials[email]" placeholder="Email">
      </div>
      <div class="input-group">
        <label for="password"> Password </label>
-       <input type="password" name="credentials[password]" placeholder="Password">
+       <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
      </div>
-     <input type="submit" name="submit" class="submit" value="Log In">
+     <input type="submit" name="submit" class="btn btn-info" value="Log In">
    </form>
-</div>
+
 
 <form id="passChange">
     <h2> Change Password </h2>
     <div class="input-group">
       <label for="oldPassword"> Old Password </label>
-      <input type="password" name="passwords[old]" placeholder="Old Password">
+      <input type="password" class="form-control" name="passwords[old]" placeholder="Old Password">
     </div>
     <div class="input-group">
       <label for="newPassword"> New Password </label>
-      <input type="password" name="passwords[new]" placeholder="New Password">
+      <input type="password" class="form-control" name="passwords[new]" placeholder="New Password">
     </div>
-    <input type="submit" name="submit" class="submit" value="Change Password">
+    <input type="submit" name="submit" class="btn btn-info" value="Change Password">
   </form>
 
-<button class="btn" id="log-out"> Log Out </button>
+
+<button class="btn btn-info" id="log-out"> Log Out </button>
 
   <div class="container">
 
-      <h3>BridesmaidingIt!</h3>
-
-      <p>Planning site for the wedding party!</p>
 
 
 
@@ -127,42 +117,46 @@
           <h2>Create your event</h2>
           <div class="input-group">
             <label for="title">Event Title</label>
-            <input type="text" name="event[title]" value="" placeholder="">
-            <input type="hidden" name="event[user_id]" value="1">
-            <input type="hidden" name="event[event_id]" value="1">
+            <input type="text" class="form-control" name="event[title]" value="" placeholder="">
+            <input type="hidden" class="form-control" name="event[user_id]" value="1">
+            <input type="hidden" class="form-control" name="event[event_id]" value="1">
           </div>
-          <input type="submit" name="submit" class="submit" value="enter event">
+          <input type="submit" name="submit" class="btn btn-info" value="enter event">
         </form>
     </div>
 
-<h3>Show Events</h3>
-  <!--  <form class="events" id='event-show'>
-            <button type="Submit" class="btn btn-default">Show Events</button>
-          </form>-->
+    <div class="row">
+      <form id="update-event">
+        <h2>Update your event</h2>
+        <div class="input-group">
+          <label for="title">Event Title</label>
+          <input type="text" class="form-control" name="event[title]" value="" placeholder="">
+          <input type="hidden" name="event[user_id]" value="1">
+          <input type="hidden" name="event[event_id]" value="">
+        </div>
+        <input type="submit" name="submit" class="btn btn-info" value="enter event">
+      </form>
+  </div>
 
+
+<div class="list">
           <form class="events" id='eventsShow'>
-                  <button type="Submit" class="btn btn-default">Show Events</button>
+            <h3>The Bridesmaid to do list</h3>
+                  <button type="Submit" class="btn btn-info">Show list</button>
                 </form>
+              </div>
+
+
 
 <div id="message"></div>
+  <button type="Submit" id="edit" class="btn btn-info">edit</button>
 
-<div id="listData"></div>
+<form class="events" id='edit'>
 
-<script id="list-template" type="text/x-handlebars-template">
-  <h3> My list</h3>
-  <p>{{title}}</p>
-  <ul>
-    {{#each todos}}
-    <li>{{todo}}</li>
-      {{/each}}
-    </ul>
-</script>
+      </form>
+    </div>
 
-
-<script type="text/javascript">
-var
-</script>
-
+<script src="../../main.js"></script>
 <script type="text/javascript" src="/ui.js"></script>
     </body>
 </html>
