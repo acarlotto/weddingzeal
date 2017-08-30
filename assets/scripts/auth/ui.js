@@ -22,7 +22,7 @@ const onSigninSuccess = function (data) {
   $('#log-out').show()
   $('.list').show()
   $('#passChange').hide()
-  $('#create-event').show()
+  $('#create-event').hide()
   $('#update-event').hide()
   $('#registration').hide()
   $('#login').hide()
