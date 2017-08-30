@@ -60,7 +60,7 @@ const onLogoutFailure = function () {
 const onSuccessGetEvent = function (data) {
   $('#message').empty()
   for (let i = 0; i < data.events.length; i++) {
-    $('#message').append('<div class="row" style="text-align: center; color: black"> <h3><input type="checkbox"> ' + data.events[i].title + ' <a href=""><p>delete</p></a></h3></p><table><tr hidden><td id="my_id"> ' + data.events[i].id + '</td></tr></table></div>')
+    $('#message').append('<div class="row" style="text-align: center; color: black"> <h3><input type="checkbox"> ' + data.events[i].title + ' <a href=""><h5>delete</h5></a></h3></p><table><tr hidden><td id="my_id"> ' + data.events[i].id + '</td></tr></table></div>')
     // const index = $('#message').index(this)
 
     const link = data.events[i].id
