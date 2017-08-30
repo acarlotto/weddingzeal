@@ -37,7 +37,7 @@ $(document).ready(function () {
   $('#passChange').hide()
   $('#message').show()
   $('#edit').hide()
-  $('#create-event').hide()
+  $('#create-event').show()
   $('#update-event').hide()
   $('#passChange').hide()
   $('.list').hide()
