@@ -4,6 +4,8 @@ const app = require('../app.js')
 const appEvents = require('./events.js')
 
 const onSignupSuccess = function () {
+  $('#registration').find('input:text').val('')
+  $('#registration').find('input:password').val('')
   $('#yayMessage').prepend('<div class="row" style="text-align: center; color: black"> <p>You are now signed up. Login. </p></div>')
   console.log('Signup Successful!')
 }
@@ -65,7 +67,7 @@ const onSuccessGetEvent = function (data) {
     console.log(event.title)
     console.log(event.id)
     console.log(data.events.id)
-    $('#message').append('<div class="row" style="text-align: center; color: black"> <h3><input type="checkbox"> ' + event.title + ' <h5><a href="javascript:" id="deleteEvent">delete</a>   <button type="Submit" id="edit" class="btn btn-info">edit</button> </h5></h3></p><p hidden id="my_id"> ' + event.id + ' </p></div>')
+    $('#message').append('<div class="row" style="text-align: center; color: black"> <h3><input type="checkbox"> ' + event.title + ' <h5><a href="javascript:" id="deleteEvent">delete</a>   <button type="Submit" id="' + event.id + '" class="btn btn-info edit">edit</button> </h5></h3></p><p hidden id="my_id"> ' + event.id + ' </p></div>')
     $('#edit').show()
     console.log(my_id)
   })
@@ -76,10 +78,11 @@ const onSuccessGetUserEvent = function () {
   const events = data.events
   const my_id = data.events.id
   events.forEach(function (event) {
+    console.log('ui')
     console.log(event.title)
     console.log(event.id)
     console.log(data.events.id)
-    $('#message').append('<div class="row" style="text-align: center; color: black"> <h3><input type="checkbox"> ' + event.title + ' <h5><a href="javascript:" id="deleteEvent">delete</a>   <button type="Submit" id="edit" class="btn btn-info">edit</button> </h5></h3></p><p hidden id="my_id"> ' + event.id + ' </p></div>')
+    $('#message').append('<div class="row" style="text-align: center; color: black"> <h3><input type="checkbox"> ' + event.title + ' <h5><a href="javascript:" id="deleteEvent">delete</a>   <button type="Submit" id="' + event.id + '" class="btn btn-info edit">edit</button> </h5></h3></p><p hidden id="my_id"> ' + event.id + ' </p></div>')
     $('#edit').show()
     console.log(my_id)
   })
@@ -113,12 +116,13 @@ const onResetFailure = function () {
 
 const deleteSuccess = function () {
   console.log('delete success')
-  $('#message').empty()
-  onSuccessGetEvent()
+//  $('#message').empty()
+//  onSuccessGetEvent()
 }
 
-const deleteFail = function () {
+const deleteFail = function (error) {
   console.log('delete fail')
+  console.error(error)
 }
 
 const onUpdateSuccess = function () {

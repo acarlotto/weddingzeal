@@ -50,6 +50,7 @@ const onGetEvents = function (event) {
 }
 
 const onGetUsersEvents = function (event_id) {
+  console.log('events.js')
   event.preventDefault()
   appApi.showUserEvents(event_id)
   .then(appUi.onSuccessGetUserEvent)
@@ -76,11 +77,12 @@ const onDeleteEvent = function (event) {
 }
 
 const updateEvent = function (event) {
-  $('#updateEvent').val(my_id)
-  let update_id = $('#my_id').text()
-   const data = getFormFields(this)
+  // $('#updateEvent').val(my_id)
+  const data = getFormFields(this)
+  let update_id = data.event.event_id
+   console.log(data)
   event.preventDefault()
-  appApi.updateEvent(update_id)
+  appApi.updateEvent(data, update_id)
   .then(appUi.onUpdateSuccess)
   .catch(appUi.onUpdateFail)
 }

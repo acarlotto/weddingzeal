@@ -67,6 +67,7 @@ const showEvent = (id) => {
 }
 
 const showUserEvents = (event_id) => {
+  console.log('api')
   return $.ajax({
     url: app.host + '/event/' + event_id,
     method: 'GET',
@@ -81,7 +82,12 @@ const newEvent = (data) => {
   return $.ajax({
     url: app.host + '/events',
     method: 'POST',
-    data: data,
+    data: {
+      "event" : {
+      "user_id": app.user.id,
+      "title": data.event.title
+      }
+    },
     headers: {
       Authorization: 'Token token=' + app.user.token
     }
@@ -102,18 +108,18 @@ const deleteEvent = (delete_id) => {
   })
 }
 
-const updateEvent = function (id) {
+const updateEvent = function (data, update_id) {
   // let index = event.target.id
   // console.log(app.user.token)
   return $.ajax({
-    url: app.host + '/events/' + id, // was just id and then app.game.id (didn't work)
+    url: app.host + '/events/' + update_id, // was just id and then app.game.id (didn't work)
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + app.user.token // store.user.token
     },
     data: {
       'event': {
-        'title': event.title
+        'title': data.event.title
       }
     }
   })
