@@ -49,9 +49,9 @@ const onGetEvents = function (event) {
   .catch(appUi.onFailureGetEvent)
 }
 
-const onGetUsersEvents = function (id) {
+const onGetUsersEvents = function (event_id) {
   event.preventDefault()
-  appApi.showUserEvents(id)
+  appApi.showUserEvents(event_id)
   .then(appUi.onSuccessGetUserEvent)
   .catch(appUi.onFailureGetUserEvent)
 }
@@ -66,19 +66,25 @@ const onCreateNewEvent = function () {
 }
 
 const onDeleteEvent = function (event) {
+  $('#deleteEvent').val(my_id)
   const delete_id = $('#my_id').text()
+  console.log(delete_id)
   event.preventDefault()
   appApi.deleteEvent(delete_id)
   .then(appUi.deleteSuccess)
   .catch(appUi.deleteFail)
 }
 
-const updateEvent = function () {
+const updateEvent = function (event) {
+  $('#updateEvent').val(my_id)
+  let update_id = $('#my_id').text()
+   const data = getFormFields(this)
   event.preventDefault()
-  appApi.updateEvent()
+  appApi.updateEvent(update_id)
   .then(appUi.onUpdateSuccess)
   .catch(appUi.onUpdateFail)
 }
+
 module.exports = {
   registerUser,
   loginUser,

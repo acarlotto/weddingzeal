@@ -66,10 +66,9 @@ const showEvent = (id) => {
   })
 }
 
-const showUserEvents = (id) => {
-  // const eventId = data.event.id
+const showUserEvents = (event_id) => {
   return $.ajax({
-    url: app.host + '/event/' + id,
+    url: app.host + '/event/' + event_id,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + app.user.token
@@ -91,6 +90,8 @@ const newEvent = (data) => {
 
 // add in other files
 const deleteEvent = (delete_id) => {
+  console.log('happy')
+  console.log(delete_id)
   return $.ajax({
     url: app.host + '/events/' + delete_id,
     method: 'DELETE',
@@ -111,7 +112,8 @@ const updateEvent = function (id) {
       Authorization: 'Token token=' + app.user.token // store.user.token
     },
     data: {
-      'title': {
+      'event': {
+        'title': event.title
       }
     }
   })

@@ -18,29 +18,40 @@ $(() => {
   $('#registration').on('submit', appEvents.registerUser)
   $('#login').on('submit', appEvents.loginUser)
   $('#log-out').on('click', appEvents.logoutUser)
-  $('#event-show').on('click', appEvents.onGetEvents)
+
   $('#passChange').on('submit', appEvents.resetPassword)
   // $('#eventsShow').on('submit', appEvents.onGetEvents)
   $('#eventsShow').click(function () {
     const myDiv = $('#eventsShow')
     myDiv.clearQueue()
     $(this).on('submit', appEvents.onGetEvents)
+    // appEvents.onCreateNewEvent()
   })
-  $('#deleteEvent').on('click', appEvents.deleteEvent)
-  $('#deleteEvent').click(function () {
+
+  $('#eventsShowUser').click(function () {
+    // const myDiv = $('#eventsShow')
+    // myDiv.clearQueue()
+    $(this).on('submit', appEvents.onGetUsersEvents)
+    // appEvents.onCreateNewEvent()
   })
+  // $('#eventsShowUser').on('click', appEvents.onGetUsersEvents)
+  $(document).on('click', "#deleteEvent", appEvents.onDeleteEvent)
+  $(document).on('click', "#updateEvent", appEvents.updateEvent)
   $('#create-event').on('submit', appEvents.onCreateNewEvent)
-  $('#update-event').on('submit', appEvents.updateEvent)
+  $('#updatEvent').on('submit', appEvents.updateEvent)
+})
+
+$('#showEdit').click(function () {
+  $('#updatEvent').append('test')
 })
 
 $(document).ready(function () {
-  $('#passChange').hide()
   $('#message').show()
-  $('#edit').hide()
-  $('#create-event').hide()
-  $('#update-event').hide()
-  $('#passChange').hide()
-  $('.list').hide()
+  $('#edit').show()
+  $('#create-event').show()
+  $('#updateEvent').show()
+  $('#passChange').show()
+  $('.list').show()
   $('#log-out').hide()
   $('#passChangeButton').show()
   $('#errorMessage').show()
@@ -49,10 +60,11 @@ $(document).ready(function () {
 
 jQuery(function () {
   jQuery('#edit').click(function () {
-    $('#message').toggle('slow')
+    // $('#message').toggle('slow')
     // $('#edit').toggle('slow')
     jQuery('#passChange').toggle('slow')
     jQuery('#create-event').toggle('slow')
     jQuery('#update-event').toggle('slow')
+    $('#updatEvent').show()
   })
 })

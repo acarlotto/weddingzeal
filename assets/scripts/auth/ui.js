@@ -15,23 +15,22 @@ const onSignupFailure = () => {
 
 const onSigninSuccess = function (data) {
   app.user = data.user
-  $('#message').empty()
   console.log('sign in successful')
   // $('#yayMessage').prepend('<div class="row" style="text-align: center; color: black"> <p>You are now signed in! </p></div>')
   $('#message').show()
   $('#log-out').show()
   $('.list').show()
-  $('#passChange').hide()
-  $('#create-event').hide()
-  $('#update-event').hide()
-  $('#registration').hide()
-  $('#login').hide()
-  $('#errorMessage').hide()
+  // $('#message').empty()
+  $('#login').find('input:text').val('')
+  $('#login').find('input:password').val('')
+  // $("#login").resetForm()
+  // $('#passChange').hide()
+  // $('#create-event').hide()
+  // $('#update-event').hide()
+  // $('#registration').hide()
+  // $('#login').hide()
+  // $('#errorMessage').hide()
 }
-
-// const onSigninFailure = function (error) {
-  // console.log('Sign in failed')
-// }
 
 const onSigninFailure = (error) => {
   console.log('Invalid username or password.')
@@ -42,12 +41,12 @@ const onLogoutSuccess = function (app) {
   $('#registration').show()
   $('#login').show()
   $('#passChange').hide()
-  $('#create-event').hide()
-  $('#update-event').hide()
+  $('#create-event').show()
+  $('#update-event').show()
   $('#errorMessage').hide()
   $('.list').hide()
   $('#log-out').hide()
-  $('#message').hide()
+  $('#message').show()
   $('#edit').hide()
   console.log('sign-out successful')
 }
@@ -59,35 +58,31 @@ const onLogoutFailure = function () {
 // get all events not for particular user put in ui.js
 const onSuccessGetEvent = function (data) {
   $('#message').empty()
-  for (let i = 0; i < data.events.length; i++) {
-    $('#message').append('<div class="row" style="text-align: center; color: black"> <h3><input type="checkbox"> ' + data.events[i].title + ' <h5><a href="">delete</a></h5></h3></p><table><tr hidden><td id="my_id"> ' + data.events[i].id + '</td></tr></table></div>')
-    // const index = $('#message').index(this)
 
-    const link = data.events[i].id
-    console.log(link)
-    // $('#link').
-    $(document).on('click', '#deleteEvent', function () {
-      appEvents.deleteEvent()
-    })
-    // <button type="Submit" class="btn btn-default">delete Events</button>
-    // <button type="Submit" id="#deleteEvent" class="btn btn-default">delete Events</button>
-    // $('#deleteEvent').click(function () {
-    //   $('#message').remove(data.events[myIndexArray[i]].title)
-    // })
-    console.log(data.events[i].id)
+  const events = data.events
+  const my_id = data.events.id
+  events.forEach(function (event) {
+    console.log(event.title)
+    console.log(event.id)
+    console.log(data.events.id)
+    $('#message').append('<div class="row" style="text-align: center; color: black"> <h3><input type="checkbox"> ' + event.title + ' <h5><a href="javascript:" id="deleteEvent">delete</a>   <button type="Submit" id="edit" class="btn btn-info">edit</button> </h5></h3></p><p hidden id="my_id"> ' + event.id + ' </p></div>')
     $('#edit').show()
-  }
-    // <button class="btn" id="deleteEvent"> delete </button>
-  // document.write(users)
-  // console.log(app.user.id)
-  console.table(data.events)
-  // console.table(data.events[0].title)
+    console.log(my_id)
+  })
 }
 
-// get events for signed in user
-const onSuccessGetUserEvent = function (data) {
-  console.log(app.user.id)
-  // console.table(data.events)
+const onSuccessGetUserEvent = function () {
+  let event_id = data.events
+  const events = data.events
+  const my_id = data.events.id
+  events.forEach(function (event) {
+    console.log(event.title)
+    console.log(event.id)
+    console.log(data.events.id)
+    $('#message').append('<div class="row" style="text-align: center; color: black"> <h3><input type="checkbox"> ' + event.title + ' <h5><a href="javascript:" id="deleteEvent">delete</a>   <button type="Submit" id="edit" class="btn btn-info">edit</button> </h5></h3></p><p hidden id="my_id"> ' + event.id + ' </p></div>')
+    $('#edit').show()
+    console.log(my_id)
+  })
 }
 
 const onFailureGetUserEvent = function (data) {
@@ -118,6 +113,8 @@ const onResetFailure = function () {
 
 const deleteSuccess = function () {
   console.log('delete success')
+  $('#message').empty()
+  onSuccessGetEvent()
 }
 
 const deleteFail = function () {

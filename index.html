@@ -126,13 +126,13 @@
     </div>
 
     <div class="row">
-      <form id="update-event">
+      <form id="updateEvent">
         <h2>Update your event</h2>
         <div class="input-group">
           <label for="title">Event Title</label>
           <input type="text" class="form-control" name="event[title]" value="" placeholder="">
-          <input type="hidden" name="event[user_id]" value="1">
-          <input type="hidden" name="event[event_id]" value="">
+          <!--<input type="hidden" name="event[user_id]" value="1">-->
+          <input type="hidden" name="event[event_id]" value="my_id">
         </div>
         <input type="submit" name="submit" class="btn btn-info" value="enter event">
       </form>
@@ -143,13 +143,22 @@
           <form class="events" id='eventsShow'>
             <h3>The Bridesmaid to do list</h3>
                   <button type="Submit" class="btn btn-info">Show list</button>
+
                 </form>
+
+                <form class="events" id='eventsShowUser'>
+                  <h3>The Bridesmaid to do list</h3>
+                        <button type="Submit" class="btn btn-info">Show logged in user list</button>
+
+                      </form>
+
+                <div id="message"></div>
               </div>
 
 
 
-<div id="message"></div>
-  <button type="Submit" id="edit" class="btn btn-info">edit</button>
+
+  <button type="Submit" id="showEdit" class="btn btn-info">edit</button>
 
 <form class="events" id='edit'>
 
