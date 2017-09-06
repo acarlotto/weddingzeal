@@ -49,7 +49,7 @@ $(() => {
     // console.log(update_id)
   })
 
-  $(document).on('click', "#deleteEvent", appEvents.onDeleteEvent)
+  $(document).on('click', ".deleteEvent", appEvents.onDeleteEvent)
   $(document).on('submit', "#updateEvent", appEvents.updateEvent)
   $('#create-event').on('submit', appEvents.onCreateNewEvent)
   // $('#updatEvent').on('submit', appEvents.updateEvent)

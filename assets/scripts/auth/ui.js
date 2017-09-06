@@ -66,7 +66,7 @@ const onSuccessGetEvent = function (data) {
     console.log(event.title)
     console.log(event.id)
     // console.log(data.events.id)
-    $('#message').append('<div class="row" style="text-align: center; color: black"> <h5><input type="checkbox"> ' + event.title + ' <a href="javascript:" id="deleteEvent">delete</a>   <button type="Submit" id="' + event.id + '" class="btn btn-info edit">edit</button> </h5></p><p hidden id="my_id"> ' + event.id + ' </p></div>')
+    $('#message').append('<div class="row" style="text-align: center; color: black"> <h5><input type="checkbox"> ' + event.title + ' <a href="javascript:" id="' + event.id + '" class="deleteEvent">delete</a>  <button type="Submit" id="' + event.id + '" class="btn btn-info edit">edit</button></h5></p><p hidden id="my_id"> ' + event.id + ' </p></div>')
     $('#edit').show()
     // console.log(my_id)
     // console.log('banana')

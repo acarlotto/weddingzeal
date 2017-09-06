@@ -67,8 +67,8 @@ const onCreateNewEvent = function () {
 }
 
 const onDeleteEvent = function (event) {
-  $('#deleteEvent').val(my_id)
-  const delete_id = $('#my_id').text()
+  //$('#deleteEvent').val(my_id)
+  const delete_id = $(this).attr('id')
   console.log(delete_id)
   event.preventDefault()
   appApi.deleteEvent(delete_id)
