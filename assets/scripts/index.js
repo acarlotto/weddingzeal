@@ -18,60 +18,70 @@ $(() => {
   $('#registration').on('submit', appEvents.registerUser)
   $('#login').on('submit', appEvents.loginUser)
   $('#log-out').on('click', appEvents.logoutUser)
-
   $('#passChange').on('submit', appEvents.resetPassword)
   // $('#eventsShow').on('submit', appEvents.onGetEvents)
   $('#eventsShow').click(function () {
     const myDiv = $('#eventsShow')
     myDiv.clearQueue()
     $(this).on('submit', appEvents.onGetEvents)
+    console.log('this one')
     // appEvents.onCreateNewEvent()
   })
 
-  $('#eventsShowUser').click(function () {
-    // const myDiv = $('#eventsShow')
-    // myDiv.clearQueue()
-    $(this).on('submit', appEvents.onGetUsersEvents)
-    console.log('index.js')
-    // appEvents.onCreateNewEvent()
-  })
-  // $('#eventsShowUser').on('click', appEvents.onGetUsersEvents)
+  // REMOVED BUT IF BREAKS PUT BACK
+  // $('#eventsShowUser').click(function () {
+  //   $(this).on('submit', appEvents.onGetUsersEvents)
+  //   console.log('banana')
+  // })
+
+  // $('#showCreateField').click(function () {
+  //   $('#create-event').show()
+  // })
+
+  // $(document).on('click', "#showCreateField button", function () {
+  //   $('#create-event').show()
+  // })
+
   $(document).on('click', "#message button", function () {
     $('#updateEvent').show()
     let update_id = $(this).attr('id')
     $('#eventId').val(update_id)
-    console.log(update_id)
+    // console.log(update_id)
   })
+
   $(document).on('click', "#deleteEvent", appEvents.onDeleteEvent)
   $(document).on('submit', "#updateEvent", appEvents.updateEvent)
   $('#create-event').on('submit', appEvents.onCreateNewEvent)
-  $('#updatEvent').on('submit', appEvents.updateEvent)
+  // $('#updatEvent').on('submit', appEvents.updateEvent)
 })
+
+// adding this to automate view list when updating and event - might have to remove
+$('#updateEvent').on('submit', appEvents.onGetEvents)
 
 $('#showEdit').click(function () {
   $('#updatEvent').append('test')
 })
 
 $(document).ready(function () {
-  $('#message').show()
-  $('.edit').show()
-  $('#create-event').show()
+  $('#message').hide()
+  // $('.edit').show()
+  $('#create-event').hide()
   $('#updateEvent').hide()
-  $('#passChange').show()
-  $('.list').show()
+  $('#passChange').hide()
+  $('.list').hide()
   $('#log-out').hide()
-  $('#passChangeButton').show()
+  $('#passChangeButton').hide()
   $('#errorMessage').show()
   // $('#log-out').hide()
 })
 
-jQuery(function () {
-  jQuery('#edit').click(function () {
-    // $('#message').toggle('slow')
-    // $('#edit').toggle('slow')
-    jQuery('#passChange').toggle('slow')
-    jQuery('#create-event').toggle('slow')
-    jQuery('#update-event').toggle('slow')
-    $('#updatEvent').show()
-  })
-})
+// jQuery(function () {
+//   jQuery('#edit').click(function () {
+//     // $('#message').toggle('slow')
+//     // $('#edit').toggle('slow')
+//     jQuery('#passChange').toggle('slow')
+//     jQuery('#create-event').toggle('slow')
+//     jQuery('#update-event').toggle('slow')
+//     $('#updatEvent').show()
+//   })
+// })

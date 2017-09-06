@@ -4,6 +4,7 @@ const app = require('../app.js')
 const appEvents = require('./events.js')
 
 const onSignupSuccess = function () {
+  $('#errorMessage').empty()
   $('#registration').find('input:text').val('')
   $('#registration').find('input:password').val('')
   $('#yayMessage').prepend('<div class="row" style="text-align: center; color: black"> <p>You are now signed up. Login. </p></div>')
@@ -18,20 +19,19 @@ const onSignupFailure = () => {
 const onSigninSuccess = function (data) {
   app.user = data.user
   console.log('sign in successful')
+  $('#yayMessage').empty()
   // $('#yayMessage').prepend('<div class="row" style="text-align: center; color: black"> <p>You are now signed in! </p></div>')
+  $('errorMessage').empty()
+  $('yayMessage').empty()
+  $('changePasswordMessage').empty()
   $('#message').show()
   $('#log-out').show()
   $('.list').show()
-  // $('#message').empty()
   $('#login').find('input:text').val('')
   $('#login').find('input:password').val('')
-  // $("#login").resetForm()
-  // $('#passChange').hide()
-  // $('#create-event').hide()
-  // $('#update-event').hide()
-  // $('#registration').hide()
-  // $('#login').hide()
-  // $('#errorMessage').hide()
+  $('#registration').hide()
+  $('#login').hide()
+  $('#create-event').show()
 }
 
 const onSigninFailure = (error) => {
@@ -43,7 +43,7 @@ const onLogoutSuccess = function (app) {
   $('#registration').show()
   $('#login').show()
   $('#passChange').hide()
-  $('#create-event').show()
+  $('#create-event').hide()
   $('#update-event').show()
   $('#errorMessage').hide()
   $('.list').hide()
@@ -60,33 +60,33 @@ const onLogoutFailure = function () {
 // get all events not for particular user put in ui.js
 const onSuccessGetEvent = function (data) {
   $('#message').empty()
-
   const events = data.events
   const my_id = data.events.id
   events.forEach(function (event) {
     console.log(event.title)
     console.log(event.id)
-    console.log(data.events.id)
-    $('#message').append('<div class="row" style="text-align: center; color: black"> <h3><input type="checkbox"> ' + event.title + ' <h5><a href="javascript:" id="deleteEvent">delete</a>   <button type="Submit" id="' + event.id + '" class="btn btn-info edit">edit</button> </h5></h3></p><p hidden id="my_id"> ' + event.id + ' </p></div>')
+    // console.log(data.events.id)
+    $('#message').append('<div class="row" style="text-align: center; color: black"> <h5><input type="checkbox"> ' + event.title + ' <a href="javascript:" id="deleteEvent">delete</a>   <button type="Submit" id="' + event.id + '" class="btn btn-info edit">edit</button> </h5></p><p hidden id="my_id"> ' + event.id + ' </p></div>')
     $('#edit').show()
-    console.log(my_id)
+    // console.log(my_id)
+    // console.log('banana')
   })
 }
 
-const onSuccessGetUserEvent = function () {
-  let event_id = data.events
-  const events = data.events
-  const my_id = data.events.id
-  events.forEach(function (event) {
-    console.log('ui')
-    console.log(event.title)
-    console.log(event.id)
-    console.log(data.events.id)
-    $('#message').append('<div class="row" style="text-align: center; color: black"> <h3><input type="checkbox"> ' + event.title + ' <h5><a href="javascript:" id="deleteEvent">delete</a>   <button type="Submit" id="' + event.id + '" class="btn btn-info edit">edit</button> </h5></h3></p><p hidden id="my_id"> ' + event.id + ' </p></div>')
-    $('#edit').show()
-    console.log(my_id)
-  })
-}
+// const onSuccessGetUserEvent = function () {
+//   let event_id = data.events
+//   const events = data.events
+//   const my_id = data.events.id
+//   events.forEach(function (event) {
+//     console.log('ui')
+//     console.log(event.title)
+//     console.log(event.id)
+//     console.log(data.events.id)
+//     $('#message').append('<div class="row" style="text-align: center; color: black"> <h3><input type="checkbox"> ' + event.title + ' <h5><a href="javascript:" id="deleteEvent">delete</a>   <button type="Submit" id="' + event.id + '" class="btn btn-info edit">edit</button> </h5></h3></p><p hidden id="my_id"> ' + event.id + ' </p></div>')
+//     $('#edit').show()
+//     console.log(my_id)
+//   })
+// }
 
 const onFailureGetUserEvent = function (data) {
   console.log('failure')
@@ -100,6 +100,7 @@ const getAllEvents = function (data) {
 // CREATE New EVENT
 const newSuccess = function () {
   console.log('success')
+  $('#create-event').find('input:text').val('')
 }
 
 const newFail = function () {
@@ -126,6 +127,9 @@ const deleteFail = function (error) {
 }
 
 const onUpdateSuccess = function () {
+  $('#updateEvent').find('input:text').val('')
+  $('#updateEvent').hide()
+  // $('#eventsShow').trigger()
   console.log('success update')
 }
 
@@ -141,7 +145,7 @@ module.exports = {
   onLogoutSuccess,
   onLogoutFailure,
   onSuccessGetEvent,
-  onSuccessGetUserEvent,
+  // onSuccessGetUserEvent,
   onFailureGetUserEvent,
   getAllEvents,
   newSuccess,

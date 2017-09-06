@@ -80,7 +80,7 @@ const updateEvent = function (event) {
   // $('#updateEvent').val(my_id)
   const data = getFormFields(this)
   let update_id = data.event.event_id
-   console.log(data)
+  console.log(data)
   event.preventDefault()
   appApi.updateEvent(data, update_id)
   .then(appUi.onUpdateSuccess)
