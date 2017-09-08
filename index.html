@@ -108,7 +108,7 @@
   </form>
 
 
-<button class="btn btn-info" id="log-out"> Log Out </button>
+<button class="btn btn-info" id="log-out"> Log Out </button>           <button type="Submit" id="createEventButton" class="btn btn-info ">Create a todo</button>
 
   <div class="container">
 
@@ -120,45 +120,48 @@
         <form id="create-event">
           <h4>Create a todo for the brides events:</h4>
           <div class="input-group">
-            <label for="title">Event Title</label>
+            <label for="title">Todo Description:</label>
             <input type="text" class="form-control" name="event[title]" value="" placeholder="">
             <input type="hidden" class="form-control" name="event[user_id]" value="1">
             <input type="hidden" class="form-control" name="event[event_id]" value="1">
           </div>
-          <input type="submit" name="submit" class="btn btn-info" value="enter event">
+          <input type="submit" name="submit" class="btn btn-info" value="enter">
         </form>
     </div>
 
     <div class="row">
       <form id="updateEvent">
-        <h2>Update your event</h2>
+        <h2>Update your todo</h2>
         <div class="input-group">
-          <label for="title">Event Title</label>
+          <label for="title">Todo Description:</label>
           <input type="text" class="form-control" name="event[title]" value="" placeholder="">
           <!--<input type="hidden" name="event[user_id]" value="1">-->
           <input type="hidden" id="eventId" name="event[event_id]" value="">
         </div>
-        <input type="submit" name="submit" class="btn btn-info" value="enter event">
+        <input type="submit" name="submit" class="btn btn-info" value="enter">
       </form>
   </div>
 
 
 <div class="list">
           <form class="events" id='eventsShow'>
+            <br>
             <p>Your Bridesmaid to do list:</p>
-                  <button type="Submit" class="btn btn-info">View list >></button>
+                <p>  <button type="Submit" class="btn btn-info">View list >></button>    <div id="showChanges"></div></p>
 
                 </form>
 
-                <!-- <form class="events" id='showCreateField'> -->
-                        <!-- <button type="Submit" class="btn btn-infos showCreateField">Create a todo >></button> -->
-                      <!-- </form> -->
+                <!-- <form class="events" id='showCreateField'>
+                        <button type="Submit" class="btn btn-infos showCreateField">Create a todo >></button>
+                      </form> -->
+
+
 
                 <!-- <form class="events" id='eventsShowUser'>
                   <h3>The Bridesmaid to do list</h3>
                         <button type="Submit" class="btn btn-info">Show logged in user list</button> -->
 
-                      </form>
+                      <!-- </form> -->
 
                 <div id="message"></div>
               </div>
@@ -172,9 +175,9 @@
 
       </form>
 
-      <form class="events" id='delete'>
+      <!-- <form class="events" id='delete'>
 
-      </form>
+      </form> -->
     </div>
 
 <script src="../../main.js"></script>

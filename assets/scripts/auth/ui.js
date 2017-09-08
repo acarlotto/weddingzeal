@@ -8,7 +8,7 @@ const onSignupSuccess = function () {
   $('#registration').find('input:text').val('')
   $('#registration').find('input:password').val('')
   $('#yayMessage').prepend('<div class="row" style="text-align: center; color: black"> <p>You are now signed up. Login. </p></div>')
-  console.log('Signup Successful!')
+  // console.log('Signup Successful!')
 }
 
 const onSignupFailure = () => {
@@ -31,7 +31,8 @@ const onSigninSuccess = function (data) {
   $('#login').find('input:password').val('')
   $('#registration').hide()
   $('#login').hide()
-  $('#create-event').show()
+  $('#create-event').hide()
+  $('#createEventButton').show()
 }
 
 const onSigninFailure = (error) => {
@@ -50,6 +51,7 @@ const onLogoutSuccess = function (app) {
   $('#log-out').hide()
   $('#message').show()
   $('#edit').hide()
+  $('#createEventButton').hide()
   console.log('sign-out successful')
 }
 
@@ -67,9 +69,10 @@ const onSuccessGetEvent = function (data) {
     console.log(event.id)
     // console.log(data.events.id)
     $('#message').append('<div class="row" style="text-align: center; color: black"> <h5><input type="checkbox"> ' + event.title + ' <a href="javascript:" id="' + event.id + '" class="deleteEvent">delete</a>  <button type="Submit" id="' + event.id + '" class="btn btn-info edit">edit</button></h5></p><p hidden id="my_id"> ' + event.id + ' </p></div>')
-    $('#edit').show()
-    // console.log(my_id)
-    // console.log('banana')
+    // $('#edit').show()
+    $('#create-event').hide()
+    $('#updateEvent').hide()
+    $('#showChanges').empty()
   })
 }
 
@@ -101,6 +104,11 @@ const getAllEvents = function (data) {
 const newSuccess = function () {
   console.log('success')
   $('#create-event').find('input:text').val('')
+  $('#create-event').hide()
+  $('#eventsShow').show()
+  $('#message').hide()
+  $('#showChanges').prepend('<div class="row" style="text-align: center; color: #f56c4b"> <p> ' + '<b>Todo Item Created!<b> <br> click view list to see your changes!' + ' </p></div>')
+
 }
 
 const newFail = function () {
@@ -117,6 +125,7 @@ const onResetFailure = function () {
 
 const deleteSuccess = function () {
   console.log('delete success')
+  $('#showChanges').prepend('<div class="row" style="text-align: center; color: #f56c4b"> <p> ' + '<b>ITEM DELETED!<b> <br> click view list to see your changes!' + ' </p></div>')
 //  $('#message').empty()
 //  onSuccessGetEvent()
 }
@@ -129,6 +138,8 @@ const deleteFail = function (error) {
 const onUpdateSuccess = function () {
   $('#updateEvent').find('input:text').val('')
   $('#updateEvent').hide()
+  $('#eventsShow').show()
+  $('#showChanges').prepend('<div class="row" style="text-align: center; color: #f56c4b"> <p> ' + '<b>Todo Item Updated!<b> <br> click view list to see your changes!' + ' </p></div>')
   // $('#eventsShow').trigger()
   console.log('success update')
 }

@@ -24,26 +24,21 @@ $(() => {
     const myDiv = $('#eventsShow')
     myDiv.clearQueue()
     $(this).on('submit', appEvents.onGetEvents)
-    console.log('this one')
+    $('#message').show()
+    // console.log('this one')
     // appEvents.onCreateNewEvent()
   })
 
-  // REMOVED BUT IF BREAKS PUT BACK
-  // $('#eventsShowUser').click(function () {
-  //   $(this).on('submit', appEvents.onGetUsersEvents)
-  //   console.log('banana')
-  // })
-
-  // $('#showCreateField').click(function () {
-  //   $('#create-event').show()
-  // })
-
-  // $(document).on('click', "#showCreateField button", function () {
-  //   $('#create-event').show()
-  // })
+  $('#createEventButton').click(function () {
+    $('#create-event').show()
+    $('#eventsShow').hide()
+    $('#message').hide()
+  })
 
   $(document).on('click', "#message button", function () {
     $('#updateEvent').show()
+    $('#message').hide()
+    $('#eventsShow').hide()
     let update_id = $(this).attr('id')
     $('#eventId').val(update_id)
     // console.log(update_id)
@@ -72,6 +67,7 @@ $(document).ready(function () {
   $('#log-out').hide()
   $('#passChangeButton').hide()
   $('#errorMessage').show()
+  $('#createEventButton').hide()
   // $('#log-out').hide()
 })
 
