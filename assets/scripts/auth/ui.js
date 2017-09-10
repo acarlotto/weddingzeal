@@ -37,6 +37,7 @@ const onSigninSuccess = function (data) {
   $('#passChange').hide()
   $('#showChangePassButton').show()
   $('#eventsShow').show()
+  $('#begin').show()
 }
 
 const onSigninFailure = (error) => {
@@ -58,6 +59,7 @@ const onLogoutSuccess = function (app) {
   $('#createEventButton').hide()
   $('#message').empty()
   $('#showChangePassButton').hide()
+  $('#begin').hide()
   // console.log('sign-out successful')
 }
 
