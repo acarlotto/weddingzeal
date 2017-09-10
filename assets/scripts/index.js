@@ -44,6 +44,7 @@ $(() => {
     $('#showChangePassButton').hide()
     $('#eventsShow').hide()
     $('#message').hide()
+    $('updateEvent').hide()
   })
 
   $('#close').click(function () {

@@ -125,11 +125,15 @@ const newFail = function () {
 
 const onResetSuccess = function () {
   $('#yayMessage').prepend('<div class="row" style="text-align: center; color: black"> <p>Your Password was Reset! </p></div>')
+  $('#passChange').find('input:text').val('')
+  $('#passChange').find('input:password').val('')
   // console.log('password reset successful')
 }
 
 const onResetFailure = function () {
   $('#errorMessage').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'There was a problem reseting your password try again!' + ' </p></div>')
+  $('#passChange').find('input:text').val('')
+  $('#passChange').find('input:password').val('')
   // console.log('password reset failed')
 }
 
