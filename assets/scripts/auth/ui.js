@@ -58,7 +58,7 @@ const onLogoutSuccess = function (app) {
   $('#createEventButton').hide()
   $('#message').empty()
   $('#showChangePassButton').hide()
-  $('#begin').hide()
+  $('#begin').empty()
   // console.log('sign-out successful')
 }
 
