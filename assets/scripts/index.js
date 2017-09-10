@@ -44,7 +44,7 @@ $(() => {
     $('#showChangePassButton').hide()
     $('#eventsShow').hide()
     $('#message').hide()
-    $('updateEvent').hide()
+    $('#updateEvent').hide()
   })
 
   $('#close').click(function () {
@@ -57,6 +57,8 @@ $(() => {
     $('#showChangePassButton').show()
     $('#eventsShow').show()
     $('#message').show()
+    $('#passChange').find('input:text').val('')
+    $('#passChange').find('input:password').val('')
   })
 
   $(document).on('click', "#message button", function () {
