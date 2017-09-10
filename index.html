@@ -49,10 +49,13 @@
           <div id="errorMessage"></div>
           <div id="yayMessage"></div>
           <div id="changePasswordMessage"></div>
+          <div id="begin"></div>
+
 
 
 
           <h3>Planning site for the wedding party!</h3>
+
           <div class="row">
             <div class="col-md-9 push-md-3 offset-md-3">  <form id="registration" class="form-signin">
             <p>Register</p>
@@ -105,10 +108,14 @@
       <input type="password" class="form-control" name="passwords[new]" placeholder="New Password">
     </div>
     <input type="submit" name="submit" class="btn btn-info" value="Change Password">
+
   </form>
 
+  <input type="submit" name="close" class="btn btn-info" id="close" value="close">
 
-<button class="btn btn-info" id="log-out"> Log Out </button>           <button type="Submit" id="createEventButton" class="btn btn-info ">Create a todo</button>
+  <br>
+
+<button class="btn btn-info" id="log-out"> Log Out </button>           <button type="Submit" id="createEventButton" class="btn btn-info ">Create a todo</button> <button type="Submit" id="showChangePassButton" class="btn btn-info ">Change Password</button>
 
   <div class="container">
 
@@ -147,6 +154,7 @@
           <form class="events" id='eventsShow'>
             <br>
             <p>Your Bridesmaid to do list:</p>
+
                 <p>  <button type="Submit" class="btn btn-info">View list >></button>    <div id="showChanges"></div></p>
 
                 </form>

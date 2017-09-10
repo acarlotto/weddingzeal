@@ -33,6 +33,29 @@ $(() => {
     $('#create-event').show()
     $('#eventsShow').hide()
     $('#message').hide()
+    $('#begin').hide()
+  })
+
+  $('#showChangePassButton').click(function () {
+    $('#close').show()
+    $('#passChange').show()
+    $('#createEventButton').hide()
+    $('#log-out').hide()
+    $('#showChangePassButton').hide()
+    $('#eventsShow').hide()
+    $('#message').hide()
+  })
+
+  $('#close').click(function () {
+    $('#passChange').hide()
+    $('#close').hide()
+    $('#errorMessage').empty()
+    $('#yayMessage').empty()
+    $('#createEventButton').show()
+    $('#log-out').show()
+    $('#showChangePassButton').show()
+    $('#eventsShow').show()
+    $('#message').show()
   })
 
   $(document).on('click', "#message button", function () {
@@ -68,6 +91,8 @@ $(document).ready(function () {
   $('#passChangeButton').hide()
   $('#errorMessage').show()
   $('#createEventButton').hide()
+  $('#showChangePassButton').hide()
+  $('#close').hide()
   // $('#log-out').hide()
 })
 

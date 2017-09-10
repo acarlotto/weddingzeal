@@ -7,14 +7,15 @@ const registerUser = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   // Test that the passwords match
-  // if (data.credentials.password !== data.credentials.password_confirmation) {
-    // appUi.onSignupFailure("passwords don't match")
-  // } else {
-  appApi.addUser(data)
+  if (data.credentials.password !== data.credentials.password_confirmation) {
+    $('#errorMessage').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match or username is already taken. Try again!' + ' </p></div>')
+    // $('#errorMessage').text('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match. Try again!' + ' </p></div>')
+  } else {
+    appApi.addUser(data)
   .then(appUi.onSignupSuccess)
   .catch(appUi.onSignupFailure)
+  }
 }
-// }
 
 // event handler for login form
 const loginUser = function (event) {
@@ -50,7 +51,7 @@ const onGetEvents = function (event) {
 }
 
 const onGetUsersEvents = function (event_id) {
-  console.log('events.js')
+  // console.log('events.js')
   event.preventDefault()
   appApi.showUserEvents(event_id)
   .then(appUi.onSuccessGetUserEvent)
@@ -69,7 +70,7 @@ const onCreateNewEvent = function () {
 const onDeleteEvent = function (event) {
   //$('#deleteEvent').val(my_id)
   const delete_id = $(this).attr('id')
-  console.log(delete_id)
+  // console.log(delete_id)
   event.preventDefault()
   appApi.deleteEvent(delete_id)
   .then(appUi.deleteSuccess)
@@ -80,7 +81,7 @@ const updateEvent = function (event) {
   // $('#updateEvent').val(my_id)
   const data = getFormFields(this)
   let update_id = data.event.event_id
-  console.log(data)
+  // console.log(data)
   event.preventDefault()
   appApi.updateEvent(data, update_id)
   .then(appUi.onUpdateSuccess)

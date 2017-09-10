@@ -4,7 +4,7 @@ const addUser = function (data) {
   // console.log(data)
   return $.ajax({
     url: app.host + '/sign-up/',
-    headers: { 'header': 'Content-Type: application/json' },
+    // headers: { 'header': 'Content-Type: application/json' },
     method: 'POST',
     data: {
       'credentials': {
@@ -17,7 +17,7 @@ const addUser = function (data) {
 }
 
 const userLogin = function (data) {
-  console.log(data)
+  // console.log(data)
   return $.ajax({
     url: app.host + '/sign-in/',
     method: 'POST',
@@ -67,7 +67,7 @@ const showEvent = (id) => {
 }
 
 const showUserEvents = (event_id) => {
-  console.log('api')
+  // console.log('api')
   return $.ajax({
     url: app.host + '/event/' + event_id,
     method: 'GET',
@@ -96,8 +96,8 @@ const newEvent = (data) => {
 
 // add in other files
 const deleteEvent = (delete_id) => {
-  console.log('happy')
-  console.log(delete_id)
+  // console.log('happy')
+  // console.log(delete_id)
   return $.ajax({
     url: app.host + '/events/' + delete_id,
     method: 'DELETE',
