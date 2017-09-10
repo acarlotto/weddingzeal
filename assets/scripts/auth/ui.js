@@ -37,7 +37,6 @@ const onSigninSuccess = function (data) {
   $('#passChange').hide()
   $('#showChangePassButton').show()
   $('#eventsShow').show()
-  $('#begin').show()
 }
 
 const onSigninFailure = (error) => {
