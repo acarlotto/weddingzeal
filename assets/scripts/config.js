@@ -2,8 +2,8 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://blooming-stream-25969.herokuapp.com/'
-    // production: 'http://localhost:4741'
+    // production: 'https://blooming-stream-25969.herokuapp.com/'
+    production: 'http://localhost:4741'
   }
 }
 
