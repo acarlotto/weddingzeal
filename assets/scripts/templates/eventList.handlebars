@@ -6,14 +6,15 @@
 <div class="row">
   <form id="create-event">
 
-    <div class="input-group">
+    <!-- <div class="input-group"> -->
       <!-- <label for="title">Todo Description:</label> -->
-      <input type="text" class="form-control" name="event[title]">
-      </div>
+      <input type="text" class="form-control" name="event[title]" placeholder="What next?" required>
+      <!-- </div> -->
       <!-- <input type="hidden" class="form-control" name="event[user_id]" value="1">
       <input type="hidden" class="form-control" name="event[event_id]" value="1"> -->
-
-    <input type="submit" name="create-event" class="btn btn-info" value="enter">
+      <button type="submit"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button>
+       <a class="cancel-new-list" href=""><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
+    <!-- <input type="submit" name="create-event" class="btn btn-info" value="enter"> -->
   </form>
 </div>
 
@@ -23,7 +24,8 @@
           <ul class="list-items" data-id="{{id}}">
             {{#if events}}
               {{#each events}}
-               <li data-id="{{id}}" {{#if complete}}class="complete"{{/if}}><input type="checkbox" {{#if complete}}checked{{/if}} class="complete">          <a href="" class="view-list" data-id={{id}}>{{title}}</a>        <a href="" data-id="{{id}}" class="deleteEvent">delete</a></li>
+               <li data-id="{{id}}" {{#if complete}}class="complete"{{/if}}><input type="checkbox" {{#if complete}}checked{{/if}} class="complete">          <a href="" class="view-list" data-id={{id}}>{{title}}</a>
+               <a href="" class="deleteEvent" data-id={{id}}><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
               {{/each}}
             {{else}}
               <p>Start your list.</p>
