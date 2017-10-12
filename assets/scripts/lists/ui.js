@@ -11,7 +11,9 @@ const listEvents = require('./events.js')
 
 // get all events not for particular user put in ui.js
 const onSuccessGetEvent = function (data) {
-  // $('.list-header').show()
+  $('.list-header').show()
+  $('.list-header').empty()
+  $('.list').empty()
   console.log('this is the success function in ui')
   const events = data.events
   const my_id = data.events.id
@@ -38,16 +40,13 @@ const getAllEvents = function (data) {
 
 // CREATE New EVENT
 const newSuccess = function () {
-  $('.view').empty()
-  $('.list').empty()
-  $('.list-header').empty()
-  $('.list-items').empty()
+  // $('.list').empty()
+  // $('.list-header').empty()
   console.log('success')
   $('#create-event').find('input:text').val('')
-  $('#create-event').hide()
+  // $('#create-event').hide()
   $('#eventsShow').show()
-  $('#message').hide()
-  $('#showChanges').prepend('<div class="row" style="text-align: center; color: #f56c4b"> <p> ' + '<b>Todo Item Created!<b> <br> Click <i>view list</i> to see your changes!' + ' </p></div>')
+  // $('#showChanges').prepend('<div class="row" style="text-align: center; color: #f56c4b"> <p> ' + '<b>Todo Item Created!<b> <br> Click <i>view list</i> to see your changes!' + ' </p></div>')
 }
 
 const newFail = function () {

@@ -24,9 +24,9 @@ const loginUser = function (event) {
   event.preventDefault()
   appApi.userLogin(data)
   .then(appUi.onSigninSuccess)
-  // .then(() => {
-  //   $("#createEventButton").click()
-  // })
+  .then(() => {
+    $("#eventsShow").click()
+  })
   .catch(appUi.onSigninFailure)
 }
 

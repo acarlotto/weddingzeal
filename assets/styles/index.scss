@@ -51,3 +51,9 @@ font-weight: 500;
 line-height: 1.1;
 color: #ff7373;
 }
+
+.li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    list-style-type: none;
+}

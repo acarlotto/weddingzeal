@@ -21,6 +21,8 @@ const onSigninSuccess = function (data) {
   const user = app.user
   const userProfile = require('../templates/userProfile.handlebars')
   $('.view').html(userProfile(user))
+  // $('#eventsShow').hide()
+  // $('.create').hide()
 }
 
 const onSigninFailure = (error) => {
