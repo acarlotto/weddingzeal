@@ -59,7 +59,11 @@ $(() => {
     $("#eventsShow").hide()
   })
 })
-// $(document).on('click', '#what-you-want-to-click', listevents.whatFunctionYouWant)
+
+$(document).on('click', '#createEventButton', function () {
+  $('#create-event').show()
+})
+
 $('.create').hide()
 $('#create-event').hide()
 $('#updateEvent').hide()

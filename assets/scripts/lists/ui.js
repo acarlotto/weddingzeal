@@ -27,6 +27,20 @@ const onSuccessGetEvent = function (data) {
   const allItems = require('../templates/eventList.handlebars')
   const listTemplateFilled = allItems(context)
   $('.view').append(listTemplateFilled)
+
+  // $('#checked').change(function () {
+  //     if($(this).is(":checked")) {
+  //         $(this).addClass("completed")
+  //     } else {
+  //         $(this).removeClass("completed")
+  //     }
+  // })
+
+
+
+  $(":checkbox").on('click', function(){
+    $(this).parent().toggleClass("checked")
+  })
 }
 
 const onFailureGetUserEvent = function (data) {

@@ -14,7 +14,8 @@
 
     </head>
 
-    <body class="container-fluid">
+    <body class="">
+
 
       <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -41,22 +42,43 @@
       </div>
 </nav>
 
-<div class="jumbotron">
+<!-- <div class="jumbotron"> -->
 
-  <div class="container">
+<!-- <i class="fa fa-heart-o fa-2x" aria-hidden="true"></i> -->
 
-    <div id="errorMessage"></div>
-    <div id="yayMessage"></div>
-    <div id="changePasswordMessage"></div>
-    <div id="begin"></div>
+  <!-- <nav>
+    <br>
 
-    <h3>Planning site for the wedding party!</h3>
+    <br>
+  </nav> -->
+
+                  <div class="container">
 
 
-      <br></br>
-      <!-- <button type="Submit" id="createEventButton" class="btn btn-info ">Create a todo</button> -->
-      <button class="btn btn-info" id="log-out"> Log Out </button>  <button type="Submit" id="showChangePassButton" class="btn btn-info ">Change Password</button>
-  <br></br>
+                    <div id="errorMessage"></div>
+                    <div id="yayMessage"></div>
+                    <div id="changePasswordMessage"></div>
+                    <div id="begin"></div>
+                      <!-- <button type="Submit" id="createEventButton" class="btn btn-info ">Create a todo</button> -->
+                      <button class="btn btn-info" id="log-out"> Log Out </button>  <button type="Submit" id="showChangePassButton" class="btn btn-info ">Change Password</button>
+                  <br></br>
+
+                  <form id="create-event">
+
+                    <!-- <div class="input-group"> -->
+                      <!-- <label for="title">Todo Description:</label> -->
+                      <input type="text" class="form-control" name="event[title]" placeholder="What next?" required>
+                      <!-- </div> -->
+                      <!-- <input type="hidden" class="form-control" name="event[user_id]" value="1">
+                      <input type="hidden" class="form-control" name="event[event_id]" value="1"> -->
+                      <button type="submit"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button>
+                       <a class="cancel-new-list" href=""><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
+                    <!-- <input type="submit" name="create-event" class="btn btn-info" value="enter"> -->
+                  </form>
+
+                  </div>
+
+
 
       <div class="view"></div>
 

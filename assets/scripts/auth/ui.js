@@ -23,6 +23,7 @@ const onSigninSuccess = function (data) {
   $('.view').html(userProfile(user))
   // $('#eventsShow').hide()
   // $('.create').hide()
+  $('#log-out').show()
 }
 
 const onSigninFailure = (error) => {
@@ -30,21 +31,12 @@ const onSigninFailure = (error) => {
   $('#errorMessage').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match or password is incorrect. Try again!' + ' </p></div>')
 }
 
-const onLogoutSuccess = function (app) {
+const onLogoutSuccess = function (data) {
   $('#registration').show()
   $('#login').show()
-  $('#passChange').hide()
-  $('#create-event').hide()
-  $('#update-event').show()
-  // $('#errorMessage').hide()
-  $('.list').hide()
   $('#log-out').hide()
-  // $('#message').show()
-  $('#edit').hide()
-  $('#createEventButton').hide()
-  $('#message').empty()
-  $('#showChangePassButton').hide()
-  $('#begin').empty()
+  $('.view').hide()
+
   // console.log('sign-out successful')
 }
 

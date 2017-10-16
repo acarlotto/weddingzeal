@@ -57,3 +57,74 @@ color: #ff7373;
     text-align: -webkit-match-parent;
     list-style-type: none;
 }
+
+.welcome {
+background: url(https://i.imgur.com/gYM7Zpt.jpg) no-repeat;
+opacity: 50%;
+background-size: cover;
+color: #fff;
+min-height: 100vh;
+}
+
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+nav {
+  background: #e86467;
+color: #fff;
+overflow: auto;
+padding: .25em 1em;
+width: 100%;
+}
+
+.navbar {
+position: relative;
+border: 1px solid transparent;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    border-radius: 8px;
+    border: 1px solid #14669e;
+}
+
+.listview {
+  margin: 80px;
+}
+
+.list-header {
+  margin: 80px;
+}
+
+.user-info {
+  margin: 80px;
+}
+
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+    list-style: none;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.btn {
+background: #46b8da;
+border: 1px solid #fff;
+border-radius: 10px;
+display: inline-block;
+padding: 1em;
+}
+
+.checked {
+  display: list-item;
+  text-align: -webkit-match-parent;
+  color: #ccc;
+}
