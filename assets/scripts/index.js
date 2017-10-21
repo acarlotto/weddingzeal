@@ -13,7 +13,7 @@ const listEvents = require('../scripts/lists/events.js')
 const home = require('./templates/home.handlebars')
 
 $(() => {
-  $('.view').html(home)
+  // $('.view').html(home)
   appEvents.addHandlers()
   listEvents.addHandlers()
 
@@ -69,3 +69,8 @@ $('#create-event').hide()
 $('#updateEvent').hide()
 $('.list-header').hide()
 $("#eventsShow").hide()
+
+$('.cancel-new-list').on('click', function () {
+  event.preventDefault()
+  $('#create-event').hide()
+})

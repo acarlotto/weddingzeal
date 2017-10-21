@@ -23,11 +23,11 @@
       <div class="navbar navbar-default navbar-fixed-top">
 
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
-            </button>
+            </button> -->
 <a class="navbar-brand" href="#">  <img src="http://bridesmaidingit.com//assets/images/logo.png"></a>
           </div>
           <div class="collapse navbar-collapse">
@@ -60,30 +60,90 @@
                     <div id="changePasswordMessage"></div>
                     <div id="begin"></div>
                       <!-- <button type="Submit" id="createEventButton" class="btn btn-info ">Create a todo</button> -->
-                      <button class="btn btn-info" id="log-out"> Log Out </button>  <button type="Submit" id="showChangePassButton" class="btn btn-info ">Change Password</button>
+                      <button class="btn btn-info" id="log-out" class="logout"> Log Out hello</button>  <button type="Submit" id="showChangePassButton" class="btn btn-info ">Change Password</button>
                   <br></br>
 
-                  <form id="create-event">
 
+
+                  <form id="create-event">
                     <!-- <div class="input-group"> -->
                       <!-- <label for="title">Todo Description:</label> -->
-                      <input type="text" class="form-control" name="event[title]" placeholder="What next?" required>
+                      <div class="outer">
+                      <div class="inner"><input type="text" class="form-control" name="event[title]" placeholder="What next?" required></div>
                       <!-- </div> -->
                       <!-- <input type="hidden" class="form-control" name="event[user_id]" value="1">
                       <input type="hidden" class="form-control" name="event[event_id]" value="1"> -->
-                      <button type="submit"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button>
-                       <a class="cancel-new-list" href=""><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
+                      <div class="inner"><button type="submit" class="createButton"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button></div>
+                       <div class="inner"><a class="cancel-new-list" href=""><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></div>
                     <!-- <input type="submit" name="create-event" class="btn btn-info" value="enter"> -->
-                  </form>
-
                   </div>
+                   </form>
 
-
+</div>
 
       <div class="view"></div>
 
-    </div>
-    </div>
+      <div class="home">
+      <div class="welcome">
+        <!-- <div class="jumbotron"> -->
+
+              <div class="container">
+
+                <div id="errorMessage"></div>
+                <div id="yayMessage"></div>
+                <div id="changePasswordMessage"></div>
+                <div id="begin"></div>
+
+
+
+                <h1> Planning site for the wedding party!</h1>
+
+
+
+                <div class="row">
+                  <div class="col-md-9 push-md-3 offset-md-3">  <form id="registration" class="form-signin">
+                  <h3>Register</h3>
+
+                  <div class="input-group">
+                      <label for="password"> Email </label>
+                    <input type="text" class="form-control" name="credentials[email]" placeholder="Email" aria-label="Username" aria-describedby="sizing-addon2">
+                  </div>
+                  <div class="input-group">
+                  <label for="password"> Password </label>
+                  <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+                  </div>
+                  <div class="input-group">
+                  <label for="password-confirm"> Password </label>
+                  <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                  </div>
+                  <br>
+                  <input type="submit" class="btn btn-info" name="submit" value="Register">
+
+
+                </form>
+              </div>
+
+                  <div class="col-md-3 pull-md-9"><form id="login" class="form-signin">
+                    <h3> Login</h3>
+                    <div class="input-group">
+                      <label for="username"> Username </label>
+                      <input type="text" class="form-control" name="credentials[email]" placeholder="Email">
+                    </div>
+                    <div class="input-group">
+                      <label for="password"> Password </label>
+                      <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+                    </div>
+                    <br>
+                    <input type="submit" name="submit" class="btn btn-info" value="Log In">
+                  </form>
+      </div>
+                </div>
+
+      </div>
+      </div>
+      </div>
+
+
 
     </body>
 </html>

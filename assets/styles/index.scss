@@ -93,15 +93,19 @@ border: 1px solid transparent;
 }
 
 .listview {
-  margin: 80px;
+  margin: 0px 80px;
 }
 
 .list-header {
-  margin: 80px;
+  margin: 0px 80px;
+}
+
+.list {
+  margin: 50px 80px;
 }
 
 .user-info {
-  margin: 80px;
+  margin: 0px 80px;
 }
 
 ul, ol {
@@ -127,4 +131,22 @@ padding: 1em;
   display: list-item;
   text-align: -webkit-match-parent;
   color: #ccc;
+}
+
+.createForm {
+  margin: 0px 80px;
+}
+
+.logout {
+  margin: 100px;
+}
+
+
+.inner {
+  display: inline-block;
+}
+
+.outer {
+    width:100%;
+    text-align: center;
 }

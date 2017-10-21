@@ -21,9 +21,6 @@ const userLogin = function (data) {
   return $.ajax({
     url: app.host + '/sign-in/',
     method: 'POST',
-    // headers: {
-      // Authorization: 'Token token=' + app.user.token // store.user.token
-  // },
     data: {
       'credentials': {
         'email': data.credentials.email,

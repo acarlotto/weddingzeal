@@ -2,6 +2,7 @@
 
 const app = require('../app.js')
 const appEvents = require('./events.js')
+const home = require('../templates/home.handlebars')
 
 const onSignupSuccess = function () {
   $('#errorMessage').empty()
@@ -21,9 +22,11 @@ const onSigninSuccess = function (data) {
   const user = app.user
   const userProfile = require('../templates/userProfile.handlebars')
   $('.view').html(userProfile(user))
-  // $('#eventsShow').hide()
-  // $('.create').hide()
+  $('.view').show()
   $('#log-out').show()
+  $('.home').hide()
+  $('#login').find('input:text').val('')
+  $('#login').find('input:password').val('')
 }
 
 const onSigninFailure = (error) => {
@@ -31,13 +34,37 @@ const onSigninFailure = (error) => {
   $('#errorMessage').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match or password is incorrect. Try again!' + ' </p></div>')
 }
 
-const onLogoutSuccess = function (data) {
-  $('#registration').show()
-  $('#login').show()
-  $('#log-out').hide()
-  $('.view').hide()
+// const goHome = () => {
+//   if (!app.user.id) {
+//         const home2 = require('../templates/home2.handlebars')
+//         $('.view').html(home2)
+//   }
+// }
 
-  // console.log('sign-out successful')
+const onLogoutSuccess = function () {
+  console.log('logout successful')
+  $('.home').show()
+  $('.view').hide()
+  $('#log-out').hide()
+  $('#create-event').hide()
+  $('#registration').find('input:text').val('')
+  $('#registration').find('input:password').val('')
+  $('#login').find('input:text').val('')
+  $('#login').find('input:password').val('')
+  // $(document).on('click', '#log-out', function () {
+  //   $('.view').append(home)
+  // })
+  // $('#registration').show()
+  // $('#login').show()
+
+  // $('.view').hide()
+  // app.user = {
+  //   id: null,
+  //   email: null,
+  //   token: null
+  // }
+  // goHome()
+  // if (!app.user.id) {
 }
 
 const onLogoutFailure = function () {
@@ -64,6 +91,7 @@ module.exports = {
   onSigninSuccess,
   onSigninFailure,
   onLogoutSuccess,
+  // goHome,
   onLogoutFailure,
   onResetSuccess,
   onResetFailure

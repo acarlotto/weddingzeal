@@ -84,12 +84,24 @@ const addHandlers = () => {
   })
 }
 
+// const onGoHome = () => {
+//   event.preventDefault()
+//   if (app.user.id) {
+//     api.getUser()
+//       .done(ui.renderProfile)
+//       .fail(ui.getUserFailure)
+//   } else {
+//     ui.goHome()
+//   }
+// }
+
 module.exports = {
   onGetEvents,
   // onGetUsersEvents,
   onCreateNewEvent,
   onDeleteEvent,
   updateEvent,
-  addHandlers
+  addHandlers,
+  // onGoHome
   // onGetAllLists
 }

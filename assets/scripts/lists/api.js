@@ -70,10 +70,21 @@ const updateEvent = function (data, update_id) {
   })
 }
 
+const getUser = () => {
+  return $.ajax({
+    url: app.host + '/users/' + app.user.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  });
+};
+
 module.exports = {
   showEvent,
   // showUserEvents,
   newEvent,
   deleteEvent,
-  updateEvent
+  updateEvent,
+  getUser
 }

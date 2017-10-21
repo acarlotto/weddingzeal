@@ -5,8 +5,8 @@ const getFormFields = require('../../../lib/get-form-fields')
 
 // event handler for registration form
 const registerUser = function (event) {
-  event.preventDefault()
   const data = getFormFields(this)
+  event.preventDefault()
   // Test that the passwords match
   if (data.credentials.password !== data.credentials.password_confirmation) {
     $('#errorMessage').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match or username is already taken. Try again!' + ' </p></div>')
@@ -20,19 +20,19 @@ const registerUser = function (event) {
 
 // event handler for login form
 const loginUser = function (event) {
-  const data = getFormFields(this)
   event.preventDefault()
+  const data = getFormFields(this)
   appApi.userLogin(data)
   .then(appUi.onSigninSuccess)
   .then(() => {
-    $("#eventsShow").click()
+    $('#eventsShow').click()
   })
   .catch(appUi.onSigninFailure)
 }
 
-const logoutUser = function () {
+const logoutUser = function (event) {
   // const data = getFormFields(this)
-  event.preventDefault(event)
+  event.preventDefault()
   appApi.userLogout()
   .then(appUi.onLogoutSuccess)
   .catch(appUi.onLogoutFailure)
@@ -49,6 +49,12 @@ const resetPassword = function (event) {
 const addHandlers = () => {
   $('#registration').on('submit', registerUser)
   $('#login').on('submit', loginUser)
+
+  // $('#login').on('submit', function () {
+  //   event.preventDefault(data)
+  //   loginUser()
+  // })
+
   $('#log-out').on('click', logoutUser)
   $('#passChange').on('submit', resetPassword)
 }

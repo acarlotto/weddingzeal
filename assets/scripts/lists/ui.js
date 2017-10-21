@@ -28,17 +28,8 @@ const onSuccessGetEvent = function (data) {
   const listTemplateFilled = allItems(context)
   $('.view').append(listTemplateFilled)
 
-  // $('#checked').change(function () {
-  //     if($(this).is(":checked")) {
-  //         $(this).addClass("completed")
-  //     } else {
-  //         $(this).removeClass("completed")
-  //     }
-  // })
 
-
-
-  $(":checkbox").on('click', function(){
+  $(":checkbox").on('click', function () {
     $(this).parent().toggleClass("checked")
   })
 }
@@ -49,7 +40,7 @@ const onFailureGetUserEvent = function (data) {
 
 // get all events
 const getAllEvents = function (data) {
-  app.user.events = data.events
+  // app.user.events = data.events
 }
 
 // CREATE New EVENT
@@ -92,6 +83,17 @@ const onUpdateFail = function () {
   // console.log('fail update')
 }
 
+// const renderProfile = (data) => {
+//   if (app.user.id) {
+//     app.user.events = data.user.events;
+//   } else {
+//     app.user = data.user;
+//   }
+//   let user = app.user;
+//   const userProfile = require('../templates/userProfile.handlebars');
+//   $('.view').html(userProfile(user));
+// };
+
 module.exports = {
   onSuccessGetEvent,
   // onSuccessGetUserEvent,
@@ -103,5 +105,6 @@ module.exports = {
   deleteFail,
   onUpdateSuccess,
   onUpdateFail
+  // renderProfile
   // renderAllItems
 }
