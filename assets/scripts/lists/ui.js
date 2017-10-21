@@ -47,6 +47,7 @@ const getAllEvents = function (data) {
 const newSuccess = function () {
   // $('.list').empty()
   // $('.list-header').empty()
+  $('#create-event').hide()
   console.log('success')
   $('#create-event').find('input:text').val('')
   // $('#create-event').hide()

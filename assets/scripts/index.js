@@ -78,6 +78,11 @@ $('#updateEvent').hide()
 $('.list-header').hide()
 $("#eventsShow").hide()
 
+$('.cancel-update-list').on('click', function () {
+  event.preventDefault()
+  $('#updateEvent').hide()
+})
+
 $('.cancel-new-list').on('click', function () {
   event.preventDefault()
   $('#create-event').hide()

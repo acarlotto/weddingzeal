@@ -6,6 +6,7 @@ const home = require('../templates/home.handlebars')
 
 const onSignupSuccess = function () {
   $('#errorMessage').empty()
+  $('#yayMessage').empty()
   $('#registration').find('input:text').val('')
   $('#registration').find('input:password').val('')
   $('#yayMessage').prepend('<div class="row" style="text-align: center; color: black"> <p>You are now signed up. Login. </p></div>')
@@ -13,6 +14,8 @@ const onSignupSuccess = function () {
 }
 
 const onSignupFailure = () => {
+  $('#errorMessage').empty()
+  $('#yayMessage').empty()
   // console.log('There was problem signing up, please try again!')
   $('#errorMessage').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match or username is already taken. Try again!' + ' </p></div>')
 }
@@ -27,9 +30,14 @@ const onSigninSuccess = function (data) {
   $('.home').hide()
   $('#login').find('input:text').val('')
   $('#login').find('input:password').val('')
+  $('#errorMessage').empty()
+  $('#errorMessage').hide()
+  $('#yayMessage').empty()
+  $('#yayMessage').hide()
 }
 
 const onSigninFailure = (error) => {
+  $('#errorMessage').empty()
   // console.log('Invalid username or password.')
   $('#errorMessage').prepend('<div class="row" style="text-align: center; color: red"> <p> ' + 'Passwords do not match or password is incorrect. Try again!' + ' </p></div>')
 }
