@@ -60,7 +60,7 @@
                     <div id="changePasswordMessage"></div>
                     <div id="begin"></div>
                       <!-- <button type="Submit" id="createEventButton" class="btn btn-info ">Create a todo</button> -->
-                      <button class="btn btn-info" id="log-out" class="logout"> Log Out hello</button>  <button type="Submit" id="showChangePassButton" class="btn btn-info ">Change Password</button>
+                      <button class="btn btn-info" id="log-out" class="logout"> Log Out</button>  <button type="Submit" id="showChangePassButton" class="btn btn-info ">Change Password</button>
                   <br></br>
 
 
@@ -78,6 +78,32 @@
                     <!-- <input type="submit" name="create-event" class="btn btn-info" value="enter"> -->
                   </div>
                    </form>
+
+                   <form id="updateEvent">
+                     <!-- <div class="input-group"> -->
+                       <!-- <label for="title">Todo Description:</label> -->
+                       <div class="outer">
+                       <div class="inner"><input type="text" class="form-control event-title" name="event[title]" placeholder="Update your event?" required></div>
+                       <!-- </div> -->
+                       <!-- <input type="hidden" class="form-control" name="event[user_id]" value="1">
+                       <input type="hidden" class="form-control" name="event[event_id]" value="1"> -->
+                       <input type="hidden" id="eventId" name="event[event_id]" value="">
+                       <div class="inner"><button type="submit"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button></div>
+                        <div class="inner"><a class="cancel-new-list" href=""><i class="fa fa-times-circle-o" aria-hidden="true"></i></a></div>
+                     <!-- <input type="submit" name="create-event" class="btn btn-info" value="enter"> -->
+                   </div>
+                    </form>
+
+      <!-- <form id="updateEvent">
+       <h2>Update your todo</h2>
+       <div class="input-group">
+         <label for="title">Todo Description:</label>
+         <input type="text" class="form-control" name="event[title]" value="" placeholder="">
+
+         <input type="hidden" id="eventId" name="event[event_id]" value="">
+       </div>
+       <input type="submit" name="submit" class="btn btn-info" value="enter">
+     </form> -->
 
 </div>
 

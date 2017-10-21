@@ -49,8 +49,9 @@ const onDeleteEvent = function (data) {
 const updateEvent = function (event) {
   // $('#updateEvent').val(my_id)
   const data = getFormFields(this)
+  // let title = $(event.target).parents('form').find('.event-title').html();
   let update_id = data.event.event_id
-  // console.log(data)
+  console.log('update bbb')
   event.preventDefault()
   appApi.updateEvent(data, update_id)
   .then(appUi.onUpdateSuccess)
@@ -66,22 +67,21 @@ const addHandlers = () => {
     $('#updateEvent').hide()
   })
 
-  $(document).on('submit', "#updateEvent", updateEvent)
-  $('#updateEvent').on('submit', onGetEvents)
-  $('#eventsShow').click(function () {
-    const myDiv = $('#eventsShow')
-    myDiv.clearQueue()
-    $(this).on('submit', onGetEvents)
-    $('#message').show()
-  })
-  $(document).on('click', "#message button", function () {
-    $('#updateEvent').show()
-    $('#message').hide()
-    $('#eventsShow').hide()
-    let update_id = $(this).attr('id')
-    $('#eventId').val(update_id)
-    // console.log(update_id)
-  })
+  // $(document).on('submit', "#updateEvent", updateEvent)
+  // $('#updateEvent').on('submit', onGetEvents)
+  // $('#eventsShow').click(function () {
+  //   const myDiv = $('#eventsShow')
+  //   myDiv.clearQueue()
+  //   $(this).on('submit', onGetEvents)
+  //   $('#message').show()
+  // })
+  // $(document).on('click', "#message button", function () {
+  //   $('#updateEvent').show()
+  //   $('#message').hide()
+  //   $('#eventsShow').hide()
+  //   let update_id = $(this).attr('id')
+  //   $('#eventId').val(update_id)
+  // })
 }
 
 // const onGoHome = () => {

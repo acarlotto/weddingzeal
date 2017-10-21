@@ -43,6 +43,7 @@ $(() => {
 
   $(document).on('click', '.deleteEvent', listEvents.onDeleteEvent)
   $(document).on('click', '#eventsShow', listEvents.onGetEvents)
+  $(document).on('submit', '#updateEvent', listEvents.updateEvent)
 
   // $(document).on('click', '#eventsShow', function () {
   //   $('.list-header').show()
@@ -62,6 +63,13 @@ $(() => {
 
 $(document).on('click', '#createEventButton', function () {
   $('#create-event').show()
+})
+
+$(document).on('click', '.edit', function () {
+  event.preventDefault()
+  $('#updateEvent').show()
+  let update_id = $(this).attr('data-id')
+  $('#eventId').val(update_id)
 })
 
 $('.create').hide()

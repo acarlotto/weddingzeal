@@ -71,6 +71,7 @@ const deleteFail = function (error) {
 }
 
 const onUpdateSuccess = function () {
+  console.log('update ddd')
   $('#updateEvent').find('input:text').val('')
   $('#updateEvent').hide()
   $('#eventsShow').show()
