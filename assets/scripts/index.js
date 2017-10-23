@@ -67,9 +67,13 @@ $(document).on('click', '#createEventButton', function () {
 
 $(document).on('click', '.edit', function () {
   event.preventDefault()
+  let update_title = $(this).attr('data-title')
+  console.log(update_title)
   $('#updateEvent').show()
+  $('#eventTitle').val(update_title)
   let update_id = $(this).attr('data-id')
   $('#eventId').val(update_id)
+  console.log(update_id)
 })
 
 $('.create').hide()

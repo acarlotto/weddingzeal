@@ -48,9 +48,10 @@ const onDeleteEvent = function (data) {
 
 const updateEvent = function (event) {
   // $('#updateEvent').val(my_id)
+  // let title = $(event.target).parents('form').find('.event-title').html()
   const data = getFormFields(this)
-  // let title = $(event.target).parents('form').find('.event-title').html();
   let update_id = data.event.event_id
+  let update_title = data.event.event_title
   console.log('update bbb')
   event.preventDefault()
   appApi.updateEvent(data, update_id)

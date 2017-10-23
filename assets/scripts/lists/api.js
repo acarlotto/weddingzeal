@@ -56,6 +56,8 @@ const deleteEvent = (delete_id) => {
 const updateEvent = function (data, update_id) {
   // let index = event.target.id
   // console.log(app.user.token)
+  let update_title = data.event.title
+  console.log(update_title)
   console.log('update ccc')
   return $.ajax({
     url: app.host + '/events/' + update_id, // was just id and then app.game.id (didn't work)

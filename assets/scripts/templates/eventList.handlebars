@@ -14,7 +14,7 @@
               {{#each events}}
                <li data-id="{{id}}" {{#if packed}}class="packed"{{/if}}><input type="checkbox" {{#if packed}}checked{{/if}} class="pack-content"> {{title}}
                <a href="" class="deleteEvent" data-id={{id}}><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-             <a href="" class="edit" data-id={{id}}><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+             <a href="" class="edit" data-id={{id}} data-title="{{title}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
            </li>
 
               <hr>
